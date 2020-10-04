@@ -1,0 +1,21 @@
+In file included from binary_tree_test.cpp:1:
+./binary_tree.h:213:13: error: expected ';' after expression
+      vector<T>::iterator it;
+            ^
+            ;
+./binary_tree.h:213:27: error: use of undeclared identifier 'it'
+      vector<T>::iterator it;
+                          ^
+./binary_tree.h:215:12: error: use of undeclared identifier 'it'
+      for (it = V.begin(); it!= V.end(); it++) {
+           ^
+./binary_tree.h:215:28: error: use of undeclared identifier 'it'
+      for (it = V.begin(); it!= V.end(); it++) {
+                           ^
+./binary_tree.h:215:42: error: use of undeclared identifier 'it'
+      for (it = V.begin(); it!= V.end(); it++) {
+                                         ^
+./binary_tree.h:216:20: error: use of undeclared identifier 'it'
+          cout << *it << " ";
+                   ^
+6 errors generated.
