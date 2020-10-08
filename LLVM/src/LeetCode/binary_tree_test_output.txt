@@ -1,0 +1,33 @@
+Size of array :15
+Preorder :
+45 30 20 10 5 15 40 60 50 48 55 80 100 90 120 
+Postorder :
+5 15 10 20 40 30 48 55 50 90 120 100 80 60 45 
+Inorder :
+5 10 15 20 30 40 45 48 50 55 60 80 90 100 120 
+Level Order Traversal 
+45 30 60 20 40 50 80 10 48 55 100 5 15 90 120 
+Size of binary Tree :15
+maximum : 120
+minimum : 5
+
+Node removed : 45 ROOT now : 48
+Node removed : 20 ROOT now : 48
+Node removed : 80 ROOT now : 48
+Node removed : 90 ROOT now : 48
+Preorder :
+48 30 10 5 15 40 60 50 55 100 120 
+Postorder :
+5 15 10 40 30 55 50 120 100 60 48 
+Inorder :
+5 10 15 30 40 48 50 55 60 100 120 
+Level Order Traversal 
+48 30 60 10 40 50 100 5 15 55 120 
+maximum : 120
+minimum : 5
+Size of binary Tree :11
+
+Data is present: 60
+Data is not present : 90
+Level Order Traversal 
+48 30 60 10 40 50 100 5 15 55 120 

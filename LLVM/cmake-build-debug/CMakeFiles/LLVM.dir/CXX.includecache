@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Codes/helloworld.h
+iostream
+-
+
+/Users/rajkamal/Library/Mobile Documents/com~apple~CloudDocs/Dropbox/Dropbox/My Mac (Rajs-MacBook-Pro.local)/Documents/GIT/2CPPCodes/LLVM/src/Codes/main.cpp
+iostream
+-
+Codes/helloworld.h
+/Users/rajkamal/Library/Mobile Documents/com~apple~CloudDocs/Dropbox/Dropbox/My Mac (Rajs-MacBook-Pro.local)/Documents/GIT/2CPPCodes/LLVM/src/Codes/Codes/helloworld.h
+
