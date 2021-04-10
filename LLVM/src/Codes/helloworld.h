@@ -13,4 +13,4 @@ public:
 };
 
 
-#endif //INC_2CPPCODES_HELLOWORLD_H
+#endif

@@ -1,8 +1,6 @@
-//
 // Created by Raj Kamal on 10/8/20.
-//
 
-#include "Codes/helloworld.h"
+#include "helloworld.h"
 
 void helloworld::start_coding() {
     str = "helloWorld";
