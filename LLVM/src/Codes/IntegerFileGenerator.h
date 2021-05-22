@@ -23,7 +23,7 @@ public:
     IntegerFileGenerator(int size, int range, std::string InputFileName, std::string OutputFileName);
     IntegerFileGenerator(std::string InputFileName, std::string OutputFileName);
     std::vector<int> read();
-    void write();
+    void generate();
     void write(std::vector<int>vec);
 };
 

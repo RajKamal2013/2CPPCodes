@@ -48,7 +48,7 @@ IntegerFileGenerator::IntegerFileGenerator(std::string InputFileName, std::strin
 
 }
 
-void IntegerFileGenerator :: write()
+void IntegerFileGenerator :: generate()
 {
     std::cout<< "Writing Random Generated Data to the file:" << InputFileName << std::endl;
     std::ofstream myfile;
