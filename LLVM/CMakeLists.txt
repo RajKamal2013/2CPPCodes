@@ -7,5 +7,9 @@ include_directories(include)
 
 add_executable(LLVM
         src/Codes/helloworld.cpp
-        include/Codes/helloworld.h
+        src/Codes/helloworld.h
+        src/Codes/IntegerFileGenerator.h
+        src/Codes/IntegerFileGenerator.cpp
+        src/Codes/qsort.h
+        src/Codes/qsort.cpp
         src/Codes/main.cpp)
