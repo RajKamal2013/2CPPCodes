@@ -9,6 +9,7 @@
 #include <exception>
 #include <stack>
 #include <mutex>
+#include <memory>
 
 
 struct empty_stack : std::exception {
