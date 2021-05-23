@@ -6,21 +6,15 @@
 #include <vector>
 #include <iostream>
 
-QSort :: QSort(std::vector<int> arr, int size)
-{
-    this->arr = arr;
-    this->size = size;
-}
 
-void QSort :: swap(int i, int j)
+void QSort :: Swap(std::vector<int> &arr, int i, int j)
 {
     int temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
-
 }
 
-int QSort :: partition(int start, int end)
+int QSort :: Partition(std::vector<int> &arr, int start, int end)
 {
     int pivot_data = arr[end];
     int j = start - 1;
@@ -29,29 +23,29 @@ int QSort :: partition(int start, int end)
     while(i < end) {
         if (arr[i] < pivot_data) {
             j = j + 1;
-            swap(i, j);
+            Swap(arr, i, j);
         }
         i  = i + 1;
     }
     j = j + 1;
-    swap(j, end);
+    Swap(arr, j, end);
     return j;
 }
 
-void QSort ::quicksort(int start, int end)
+void QSort ::QuickSort(std::vector<int> &arr, int start, int end)
 {
     int pivot;
     if (start < end) {
-        pivot = partition(start, end);
-        quicksort(start, pivot - 1);
-        quicksort(pivot + 1, end);
+        pivot = Partition(arr, start, end);
+        QuickSort(arr, start, pivot - 1);
+        QuickSort(arr, pivot + 1, end);
     }
 }
 
-std::vector<int> QSort :: run()
+void QSort :: Sort(std::vector<int> &arr)
 {
-    int start = 0;
-    int end = this->arr.size() - 1;
-    quicksort(start, end);
-    return std::move(arr);
+    if (arr.size() == 1) {
+        return;
+    }
+    QuickSort(arr, 0, arr.size() - 1);
 }

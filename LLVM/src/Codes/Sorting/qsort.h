@@ -8,16 +8,12 @@
 #include <vector>
 
 class QSort {
-    std::vector<int> arr;
-    int size;
-    int partition(int start, int end);
-    void quicksort(int start, int end);
-    void swap(int i, int j);
+    static void Swap(std::vector<int> &vec, int i, int j);
+    static int Partition(std::vector<int> &vec, int start, int end);
+    static void QuickSort(std::vector<int> &vec, int start, int end);
 
 public:
-    QSort(std::vector<int> vec, int size );
-    std::vector<int> run();
+    static void Sort(std::vector<int> &vec);
 };
-
 
 #endif //LLVM_QSORT_H
