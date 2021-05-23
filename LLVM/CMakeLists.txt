@@ -8,8 +8,8 @@ include_directories(include)
 add_executable(LLVM
         src/Codes/helloworld.cpp
         src/Codes/helloworld.h
-        src/Codes/IntegerFileGenerator.h
-        src/Codes/IntegerFileGenerator.cpp
-        src/Codes/qsort.h
-        src/Codes/qsort.cpp
-        src/Codes/main.cpp)
+        src/Codes/Util/IntegerFileGenerator.h
+        src/Codes/Util/IntegerFileGenerator.cpp
+        src/Codes/Sorting/qsort.h
+        src/Codes/Sorting/qsort.cpp
+        src/Codes/main.cpp src/Codes/Sorting/Msort.h)

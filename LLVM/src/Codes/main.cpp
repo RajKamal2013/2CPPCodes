@@ -8,8 +8,8 @@
 
 
 #include "helloworld.h"
-#include "IntegerFileGenerator.h"
-#include "qsort.h"
+#include "Util/IntegerFileGenerator.h"
+#include "Sorting/qsort.h"
 
 int main()
 {
