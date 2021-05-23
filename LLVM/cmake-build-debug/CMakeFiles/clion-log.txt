@@ -1,4 +1,0 @@
-"/Users/rajkamal/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/201.8743.17/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/Users/rajkamal/Library/Mobile Documents/com~apple~CloudDocs/Dropbox/Dropbox/My Mac (Rajs-MacBook-Pro.local)/Documents/GIT/2CPPCodes/LLVM"
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/rajkamal/Library/Mobile Documents/com~apple~CloudDocs/Dropbox/Dropbox/My Mac (Rajs-MacBook-Pro.local)/Documents/GIT/2CPPCodes/LLVM/cmake-build-debug
