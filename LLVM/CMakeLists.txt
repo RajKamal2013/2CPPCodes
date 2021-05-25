@@ -12,4 +12,5 @@ add_executable(LLVM
         src/Codes/Util/IntegerFileGenerator.cpp
         src/Codes/Sorting/qsort.h
         src/Codes/Sorting/qsort.cpp
-        src/Codes/main.cpp src/Codes/Sorting/Msort.h)
+        src/Codes/main.cpp src/Codes/Sorting/Msort.h
+        src/Codes/Sorting/Hsort.h)

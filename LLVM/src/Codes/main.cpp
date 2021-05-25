@@ -11,6 +11,7 @@
 #include "Util/IntegerFileGenerator.h"
 #include "Sorting/qsort.h"
 #include "Sorting/Msort.h"
+#include "Sorting/Hsort.h"
 
 
 void PrintArrayWithBanner(std::vector<int> vec, char *str )
@@ -79,6 +80,22 @@ int main()
     PrintArrayWithBanner(mvec, "MSort Test:Ouput Array");
     msortIo->write(mvec);
 
+    /* -----------------------HSort Testing ----------------------*/
+    IntegerFileGenerator *hSortIo = new IntegerFileGenerator(100, 700, "HSortInput.txt", "HSortOutput.txt");
+    hSortIo->generate();
+    std::vector<int>hvec;
+    hvec = hSortIo->read();
+    PrintArrayWithBanner(hvec, "Hsort Test:Input Array");
+
+    start= std::chrono::steady_clock::now();
+    HSort::Sort(hvec);
+    end = std::chrono::steady_clock::now();
+    std::cout << "Elapsed time in nanoseconds "
+              << std::chrono::duration_cast<std::chrono::nanoseconds>(end-start).count()
+              << " ns"
+              <<std::endl;
+    PrintArrayWithBanner(hvec, "MSort Test:Ouput Array");
+    msortIo->write(hvec);
 
     return 0;
 }
