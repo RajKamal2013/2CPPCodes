@@ -12,6 +12,7 @@
 #include "Sorting/qsort.h"
 #include "Sorting/Msort.h"
 #include "Sorting/Hsort.h"
+#include "Sorting/CSort.h"
 
 
 void PrintArrayWithBanner(std::vector<int> vec, char *str )
@@ -29,13 +30,16 @@ int main()
 {
     /* -------------------- Start Coding --------------------*/
     char *banner = "-------------------";
+    int size, range;
     std::cout << banner << "Lets start coding " << banner << std::endl;
     helloworld *test = new helloworld();
     test->start_coding();
     std::cout << std::endl;
 
     /* -------------------File Generation Test --------------------*/
-    IntegerFileGenerator *fio = new IntegerFileGenerator(50, 500, "SampleInput.txt", "SampleOutput.txt");
+    size = 50;
+    range = 500;
+    IntegerFileGenerator *fio = new IntegerFileGenerator(size, range, "SampleInput.txt", "SampleOutput.txt");
     fio->generate();
     std::vector<int> vec;
     vec = fio->read();
@@ -43,8 +47,10 @@ int main()
     fio->write(vec);
     std::cout <<std::endl;
 
-    /*--------------------Qsort Testing --------------------*/
-    IntegerFileGenerator *qsortIo = new IntegerFileGenerator(100, 700, "QsortInput.txt", "QsortOutput.txt");
+    /*--------------------Quick sort Testing --------------------*/
+    size = 100;
+    range = 700;
+    IntegerFileGenerator *qsortIo = new IntegerFileGenerator(size, range, "QsortInput.txt", "QsortOutput.txt");
     qsortIo->generate();
     std::vector<int> qvec;
     qvec = qsortIo->read();
@@ -63,8 +69,10 @@ int main()
     qsortIo->write(qvec);
 
 
-    /*--------------------Msort Testing --------------------*/
-    IntegerFileGenerator *msortIo = new IntegerFileGenerator(100, 700, "MsortInput.txt", "MsortOutput.txt");
+    /*--------------------Merge sort Testing --------------------*/
+    size = 100;
+    range  = 700;
+    IntegerFileGenerator *msortIo = new IntegerFileGenerator(size, range, "MsortInput.txt", "MsortOutput.txt");
     msortIo->generate();
     std::vector<int>mvec;
     mvec = msortIo->read();
@@ -80,8 +88,10 @@ int main()
     PrintArrayWithBanner(mvec, "MSort Test:Ouput Array");
     msortIo->write(mvec);
 
-    /* -----------------------HSort Testing ----------------------*/
-    IntegerFileGenerator *hSortIo = new IntegerFileGenerator(100, 700, "HSortInput.txt", "HSortOutput.txt");
+    /* -----------------------Heap Sort Testing ----------------------*/
+    size = 100;
+    range = 700;
+    IntegerFileGenerator *hSortIo = new IntegerFileGenerator(size, range, "HSortInput.txt", "HSortOutput.txt");
     hSortIo->generate();
     std::vector<int>hvec;
     hvec = hSortIo->read();
@@ -94,8 +104,27 @@ int main()
               << std::chrono::duration_cast<std::chrono::nanoseconds>(end-start).count()
               << " ns"
               <<std::endl;
-    PrintArrayWithBanner(hvec, "MSort Test:Ouput Array");
-    msortIo->write(hvec);
+    PrintArrayWithBanner(hvec, "HSort Test:Ouput Array");
+    hSortIo->write(hvec);
+
+    /* -----------------------Counting Sort Testing ----------------------*/
+    size = 100;
+    range = 500;
+    IntegerFileGenerator *CSortIo = new IntegerFileGenerator(size, range, "CSortInput.txt", "CSortOutput.txt");
+    CSortIo->generate();
+    std::vector<int>Cvec;
+    Cvec = CSortIo->read();
+    PrintArrayWithBanner(Cvec, "Csort Test:Input Array");
+
+    start= std::chrono::steady_clock::now();
+    CSort::Sort(Cvec, range);
+    end = std::chrono::steady_clock::now();
+    std::cout << "Elapsed time in nanoseconds "
+              << std::chrono::duration_cast<std::chrono::nanoseconds>(end-start).count()
+              << " ns"
+              <<std::endl;
+    PrintArrayWithBanner(Cvec, "CSort Test:Ouput Array");
+    CSortIo->write(Cvec);
 
     return 0;
 }
