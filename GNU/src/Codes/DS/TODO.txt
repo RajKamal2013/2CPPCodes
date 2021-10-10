@@ -1,0 +1,2 @@
+Iterators for SList, Stack, Queue.
+Make sure to work all ds with for range loop.

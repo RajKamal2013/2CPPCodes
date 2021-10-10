@@ -19,116 +19,47 @@
     <select />
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
+    <generated>
+      <config projectName="GNU" targetName="GNU" />
+    </generated>
   </component>
-  <component name="CMakeSettings">
+  <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="500af277-0c3d-427f-a797-033118aa0add" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/2CPPCodes.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/include/LeetCode/binary_search_tree.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/include/LeetCode/binary_tree.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/include/LeetCode/treeNode.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/include/Threads/helloWorld.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/include/Threads/threadSafe_Stack.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Algo/binSearchInterval.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/LeetCode/address_pointer_Test.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/LeetCode/binary_tree_test.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/LeetCode/binary_tree_test_output.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/LeetCode/permutation.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/LeetCode/permutationsolution.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/LeetCode/swap_pointer_test.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/LeetCode/t.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Threads/app.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Threads/helloWorld.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Threads/hello_world.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Threads/thread1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/.idea/LLVM.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/include/Codes/helloworld.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/include/LeetCode/binary_search_tree.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/include/LeetCode/binary_tree.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/include/LeetCode/treeNode.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/include/Threads/helloWorld.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/include/Threads/threadSafe_Stack.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/Algo/binSearchInterval.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/Codes/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/Codes/helloworld.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/Codes/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/LeetCode/address_pointer_Test.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/LeetCode/binary_tree_test.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/LeetCode/binary_tree_test_output.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/LeetCode/permutation.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/LeetCode/permutationsolution.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/LeetCode/swap_pointer_test.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/LeetCode/t.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/Threads/app.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/Threads/helloWorld.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/Threads/hello_world.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LLVM/src/Threads/thread1.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Algo/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Algo/binSearchInterval.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeetCode/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeetCode/address_pointer_Test.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeetCode/binary_search_tree.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeetCode/binary_tree.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeetCode/binary_tree_test.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeetCode/binary_tree_test_output.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeetCode/permutation.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeetCode/permutationsolution.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeetCode/swap_pointer_test.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeetCode/t.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeetCode/treeNode.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/3.12.0/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/3.12.0/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/3.12.0/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/3.12.0/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/3.12.0/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/3.12.0/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/CPPPractice.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/CPPPractice.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/CPPPractice.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/CPPPractice.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/CPPPractice.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/CPPPractice.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/CPPPractice.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/CPPPractice.cbp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Study/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Threads/1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Threads/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Threads/error.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Threads/thread1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/multiThreading/app.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/multiThreading/helloWorld.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/multiThreading/helloWorld.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/multiThreading/hello_world.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/multiThreading/threadSafe_Stack.h" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/AList.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/AQueue.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/AStack.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/DList.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/LQueue.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/LStack.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/Link.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/List.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/Queue.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/SList.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/Stack.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/TODO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/Exceptions/excep.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/MoveElementsToEnd.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/NonConstructible.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/SmallestDifference.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/SortedSquare.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/ThreeSum.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/twoSum.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/validateSubsequence.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/2CPPCodes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/2CPPCodes.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GNU/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GNU/src/Codes/IntegerFileGenerator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/src/Codes/Util/IntegerFileGenerator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GNU/src/Codes/IntegerFileGenerator.h" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/src/Codes/Util/IntegerFileGenerator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GNU/src/Codes/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GNU/src/Codes/qsort.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/src/Codes/Sorting/qsort.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GNU/src/Codes/qsort.h" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/src/Codes/Sorting/qsort.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +69,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -147,6 +79,17 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/GNU/CMakeLists.txt" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="0g0ykoiq" />
@@ -163,12 +106,35 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="cmake.loaded.for.project" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kamr\CLionProjects\2CPPCodes\GNU\src" />
+      <recent name="C:\Users\kamr\CLionProjects\2CPPCodes\GNU\src\Codes\Sorting" />
+      <recent name="C:\Users\kamr\CLionProjects\2CPPCodes\GNU\src\Codes\Util" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="GNU" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GNU" TARGET_NAME="GNU" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="GNU" RUN_TARGET_NAME="GNU">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -184,11 +150,47 @@
       <workItem from="1602126126774" duration="1505000" />
       <workItem from="1602129170555" duration="9000" />
       <workItem from="1602134893053" duration="154000" />
+      <workItem from="1621663223834" duration="6926000" />
+      <workItem from="1621759579194" duration="991000" />
+      <workItem from="1621761539285" duration="623000" />
+      <workItem from="1623225100983" duration="1440000" />
+      <workItem from="1623231000666" duration="266000" />
+      <workItem from="1630304425205" duration="1995000" />
+      <workItem from="1630378029104" duration="14767000" />
+      <workItem from="1630471832052" duration="1488000" />
+      <workItem from="1630567223398" duration="11151000" />
+      <workItem from="1630651249981" duration="18901000" />
+      <workItem from="1631336007009" duration="7583000" />
+      <workItem from="1631515974579" duration="3028000" />
+      <workItem from="1632653564628" duration="464000" />
+      <workItem from="1632758939378" duration="2367000" />
+      <workItem from="1632808644874" duration="693000" />
+      <workItem from="1632894266021" duration="963000" />
+      <workItem from="1633018783796" duration="3409000" />
+      <workItem from="1633081185995" duration="8206000" />
+      <workItem from="1633319990684" duration="8663000" />
+      <workItem from="1633413570654" duration="594000" />
+      <workItem from="1633498922934" duration="2730000" />
     </task>
+    <task id="LOCAL-00001" summary="Qsort in c++ for GNU">
+      <created>1621679518882</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1621679518882</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Qsort in c++ for GNU">
+      <created>1621679790532</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621679790532</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -204,23 +206,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601954171456">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1601954171456" />
-    <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel" timestamp="1602128100566">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel/0.0.1280.800@0.0.1280.800" timestamp="1602128100566" />
-    <state width="640" height="476" key="ImportCMakeProjectWizard.topPanel" timestamp="1602128100565">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="640" height="476" key="ImportCMakeProjectWizard.topPanel/0.0.1280.800@0.0.1280.800" timestamp="1602128100565" />
-    <state x="141" y="39" key="SettingsEditor" timestamp="1602127337454">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1602127337454" />
+    <MESSAGE value="Qsort in c++ for GNU" />
+    <option name="LAST_COMMIT_MESSAGE" value="Qsort in c++ for GNU" />
   </component>
 </project>
