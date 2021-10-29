@@ -16,6 +16,7 @@ int nonConstructibleChange(vector<int> coins) {
 
     if (coins[0] > 1) {
         return 1;
+
     }
 
     sum = coins[0];
