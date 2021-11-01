@@ -7,14 +7,53 @@ include_directories(include)
 
 add_executable(GNU
         src/main.cpp
-        src/Codes/helloworld.cpp src/Codes/helloworld.h
-        src/Codes/Sorting/qsort.h src/Codes/Sorting/qsort.cpp
-        src/Codes/Util/IntegerFileGenerator.cpp src/Codes/Util/IntegerFileGenerator.h
+        src/Codes/helloworld.cpp
+        src/Codes/helloworld.h
+        src/Codes/Sorting/qsort.h
+        src/Codes/Sorting/qsort.cpp
+        src/Codes/Util/IntegerFileGenerator.cpp
+        src/Codes/Util/IntegerFileGenerator.h
         src/Codes/DS/AList.h
         src/Codes/DS/DList.h
         src/Codes/Exceptions/excep.h
-        src/Codes/DS/Link.h src/Codes/DS/List.h src/Codes/DS/SList.h
-        src/Codes/DS/Stack.h src/Codes/DS/AStack.h src/Codes/DS/LStack.h
-        src/Codes/DS/Queue.h src/Codes/DS/AQueue.h src/Codes/DS/LQueue.h
-        src/Coding/NonConstructible.cpp
-        src/Coding/ThreeSum.h src/Coding/twoSum.h src/Coding/validateSubsequence.h src/Coding/SortedSquare.h src/Coding/SmallestDifference.h src/Coding/MoveElementsToEnd.h)
+        src/Codes/DS/Link.h
+        src/Codes/DS/List.h
+        src/Codes/DS/SList.h
+        src/Codes/DS/Stack.h
+        src/Codes/DS/AStack.h
+        src/Codes/DS/LStack.h
+        src/Codes/DS/Queue.h
+        src/Codes/DS/AQueue.h
+        src/Codes/DS/LQueue.h
+        src/Coding/Array/NonConstructible.cpp
+        src/Coding/Array/ThreeSum.h
+        src/Coding/Array/twoSum.h
+        src/Coding/Array/validateSubsequence.h
+        src/Coding/Array/SortedSquare.h
+        src/Coding/Array/SmallestDifference.h
+        src/Coding/Array/MoveElementsToEnd.h
+        src/Coding/Array/SpiralArrayPrint.h
+        src/Coding/Array/Arraypeak.h
+        src/Coding/Array/ArrayProduct.h
+        src/Coding/Array/SubArraySort.h
+        src/Coding/Array/LargestRange.h
+        src/Coding/Array/ZigZagTraverseMatrix.h
+        src/Coding/String/Palindrome.h
+        src/Coding/String/StringAPITest.h
+        src/Coding/String/ceaser_cipher.h
+        src/Coding/String/RunLengthEncoding.h
+        src/Coding/String/GenerateDocuments.h
+        src/Coding/String/FirstNonRepeatingCharacter.h
+        src/Codes/DS/BinarySearchTree.h
+        src/Codes/DS/Graph.h
+        src/Codes/DS/Heap.h
+        src/Codes/Sorting/CSort.h
+        src/Codes/Sorting/HSort.h
+        src/Codes/Sorting/Msort.h
+        src/Codes/Sorting/SortTest.h
+        src/Codes/DS/DSTest.h
+        src/Coding/DP/SubArraySum.h
+        src/Coding/Recurssion/KnightTour.h
+        src/Coding/Tree/BST.h
+        src/Coding/Tree/BSTTest.h
+        src/Coding/Tree/closestValue.h src/Coding/Tree/validateBST.h src/Coding/Tree/traverse.h src/Coding/Tree/branchSum.h src/Coding/Tree/NodeHeights.h src/Coding/Tree/mirror.h src/Coding/Tree/Diameter.h src/Coding/Tree/Successor.h src/Coding/Tree/CheckheightBalanced.h src/Coding/Tree/KthLargestValue.h src/Coding/Tree/minHeightBST.h)

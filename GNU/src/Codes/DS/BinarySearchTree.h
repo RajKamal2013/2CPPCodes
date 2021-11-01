@@ -2,8 +2,8 @@
 // Created by kamr on 10/27/2021.
 //
 
-#ifndef GNU_BST_H
-#define GNU_BST_H
+#ifndef GNU_BINARYSEARCHTREE_H
+#define GNU_BINARYSEARCHTREE_H
 
 
 /* need to fix the 139 return */
@@ -194,7 +194,7 @@ public:
 };
 
 
-void test_BST()
+void test_BinarySearchTree()
 {
     BinarySearchTree<int> t;
     int i;
@@ -222,4 +222,4 @@ void test_BST()
 }
 
 
-#endif //GNU_BST_H
+#endif //GNU_BINARYSEARCHTREE_H

@@ -1,0 +1,1332 @@
+Tree
+
+-> basic of binary tree
+
+// ******************PUBLIC OPERATIONS*********************
+// void insert( x )       --> Insert x
+// void remove( x )       --> Remove x
+// bool contains( x )     --> Return true if x is present
+// Comparable findMin( )  --> Return smallest item
+// Comparable findMax( )  --> Return largest item
+// boolean isEmpty( )     --> Return true if empty; else false
+// void makeEmpty( )      --> Remove all items
+// void printTree( )      --> Print tree in sorted order
+
+---------------------------------- BST creation ------------------------------------
+class BST {
+public:
+    int value;
+    BST *left;
+    BST *right;
+
+    BST(int val, BST* lt= nullptr, BST *rt= nullptr) {
+        value = val;
+        left = lt;
+        right = rt;
+    }
+
+    BST &insert(int val) {
+        if (this->value > val) {
+            if (left != nullptr) {
+                left->insert(val);
+            } else {
+                left = new BST(val);
+            }
+        } else {
+            if (right != nullptr) {
+                right->insert(val);
+            } else {
+                right = new BST(val);
+            }
+        }
+        return *this;
+    }
+
+    bool contains(int val) {
+        if (this->value == val) {
+            return true;
+        } else if (this->value > val) {
+            if (left != nullptr) {
+                return left->contains(val);
+            } else {
+                return false;
+            }
+        } else {
+            if (right != nullptr) {
+                return right->contains(val);
+            } else {
+                return false;
+            }
+        }
+    }
+
+    BST &findMin() {
+        if (left == nullptr) {
+            return *this;
+        } else {
+            return left->findMin();
+        }
+    }
+
+    int minimum() {
+        return findMin().value;
+    }
+
+    BST &remove(int val, BST *parent = nullptr) {
+        if (this->value > val) {
+            left->remove(val, this);
+        } else if (this->value < val) {
+            right->remove(val, this);
+        } else {
+            if ((left != nullptr) && (right != nullptr)) {
+                this->value = right->findMin().value;
+                right->remove(this->value, this);
+            } else if (parent == nullptr) {  // normal case
+                if (left != nullptr) {
+                    this->value = this->left->value;
+                    this->right = this->left->right;
+                    this->left = this->left->left;
+                } else if (right != nullptr) {
+                    this->value = this->right->value;
+                    this->right = this->right->right;
+                    this->left = this->right->left;
+                } else {
+                    // only one node.
+                }
+            } else if (parent->left == this) {
+                    parent->left = (left != nullptr)?left:right;
+            } else if (parent->right == this) {
+                    parent->right = (right != nullptr)?right:left;
+            }
+        }
+        return *this;
+    }
+};
+
+
+---------------------------------------------------------------------
+1. closest value
+
+Write a function that returns closest value to target.
+
+14 ->
+     12
+     / \
+    8   15
+   /\   /\
+  3  9 13 18
+ /\
+2  7
+
+
+
+
+100,
+
+min diff ->
+O(n) ->  inorder and compare -> get answer in O(N)
+
+for o(logN)
+
+
+
+Keep a gloal number that will be represent closest to target.  -> closest . set it to root->value
+starting from root,
+check whether target is closest to "closest" or node->value is closest to closest. -> whoever closest will become new "closest"
+At this point i know who is closest.
+Now
+check if node->data is greater then target, if thats the case, and left is not null, we need to check on left
+ow
+check if node->data is smaller then target, if thats the case, and right is not null, we need to check on right
+ow
+we know we know who is closest (we have visted left, right and updated the closesst), so return closest.
+
+
+
+Solution -->
+
+closest()
+
+int findClosestValueInBst(BST *tree, int target) {
+    if (tree != nullptr) {
+    return findClosestValueInBst_int(tree, target, tree->value);
+    } else {
+        return -1;
+    }
+}
+
+int findClosestValueInBst_int(BST *tree, int target, int closest) {
+    if (abs(target - closest) > abs(target - tree->value)) {
+        closest = tree->value;
+    }
+    if ((tree->left != nullptr) && (target < tree->value) {
+        findClosestValueInBst_int(tree->left, target, closest);
+    } else if (tree->right != nullptr) && (target > tree->value) {
+        findClosestValueInBst_int(tree->right, target, closest);
+    } else {
+        return closest;
+    }
+}
+
+
+--------------------- buggy solution -----------------------
+
+if (node bigger && left smaller)
+ closer(closer -> , value -> )
+
+if (node smaller && right bigger)
+
+- node -> bigger
+- left -> smaller
+ leftMax -> 7
+
+class BST {
+public:
+  int value;
+  BST *left;
+  BST *right;
+
+  BST(int val);
+  BST &insert(int val);
+};
+
+left max   ->
+right min  ->
+
+int min(int a, int b) {
+    (a >  b) ? return b : return a;
+}
+
+int findClosestValueInBst(BST *tree, int target, int closer = -1, int minDiff = -1) {
+
+  if (tree == nullptr) {
+      return closer;
+  }
+  int currCloser;
+  if (tree->value == target) {
+      return tree->value;
+  } else if (tree->value > target) {
+      if (left != nullptr) {
+          if (tree->left->value < target) {
+               if ((tree->value - target) < (target - tree->left->value)) {
+                /* now check for larger value than tree->left and lesser than target */
+                diff = tree->value - target;
+                currCloser = tree->value;
+               } else {
+                   diff = target- tree->left->value;
+                   currCloser = tree->left->value;
+               }
+               if (minDiff == -1) {
+                    minDiff = diff;
+                    closer = currCloser;
+                } else if (minDiff > diff) {
+                    minDiff = diff;
+                    closer = currCloser;
+                } else {
+
+                }
+                if (tree->left->right != nullptr) {
+                    return findClosestValueInBst(tree->left->right, target, closer, minDiff);
+                }
+            } else {
+                findClosestValueInBst(tree->left, target, minDiff, closer);
+            }
+      } else {
+          return tree->value;
+      }
+  } else if (tree->value < target) {
+      if (right != nullptr) {
+       if (tree->right->value > target) {
+               if ((target - tree->value) < (tree->right->value - target)) {
+                /* now check for larger value than tree->left and lesser than target */
+                diff = target - tree->value;
+                currCloser = tree->value;
+               } else {
+                   diff = tree->right->value - target;
+                   currCloser = tree->right->value;
+               }
+               if (minDiff == -1) {
+                    minDiff = diff;
+                    closer = currCloser;
+                } else if (minDiff > diff) {
+                    minDiff = diff;
+                    closer = currCloser;
+                } else {
+
+                }
+                if (tree->right->left != nullptr) {
+                    return findClosestValueInBst(tree->right->left, target, closer, minDiff);
+                }
+            } else {
+                findClosestValueInBst(tree->right, target, minDiff, closer);
+            }
+      } else {
+          return tree->value;
+      }
+  }
+  return closer
+}
+----- could not do it
+
+
+
+---------------------------------------------------------Validate BST -------------------------------------------
+
+
+Write a function to validate BST. Given BST, func returns if its BST or not. I mean BST property are satisified or not ?
+
+Time -> o(N)
+keep in mind
+1. node should be greater than left and less than or equal to right
+2. node should be greater then min and less than or equal to max
+3. while going left, max is node and while going through right min is node
+
+
+
+                 50
+                /  \
+               30   75    -> (max, min)
+              /  \
+            15   60
+
+           10,  5, 15, 2, 5, 13, 22, 1, 14}
+
+
+                          10
+                    5             15
+                2      5      13       22
+            1                     14
+
+
+
+include <bits/stdc++.h>
+bool validateBST_int(BST *tree, int max, int min) {
+    bool test = false;
+    bool lt, rt, ret;
+    ret = true;
+
+    if (tree == nullptr) {
+        return true;
+    }
+
+    if ((tree->value < min) || (tree->value >= max)) {
+        if (test) {
+            cout << __LINE__ << endl;
+        }
+        return false;
+    }
+
+    if ((tree->left) && (tree->left->value > tree->value)) {
+        if (test) {
+            cout << __LINE__ << endl;
+        }
+        return false;
+    }
+
+    if ((tree->right) && (tree->right->value < tree->value)) {
+        if (test) {
+            cout << __LINE__ << endl;
+        }
+        return false;
+    }
+
+
+    lt = validateBST_int(tree->left, tree->value, min);
+    rt = validateBST_int(tree->right, max, tree->value);
+
+    if (test) {
+        cout << "Left :" << lt << "Right :" << rt << endl;
+    }
+
+    ret = lt && rt;
+    return ret;
+}
+
+bool validateBst(BST *tree) {
+    int maxL, minR;
+    maxL = INT_MIN;
+    minR = INT_MAX;
+    if (tree == nullptr) {
+        return true;
+    } else {
+        return validateBST_int(tree, INT_MAX, INT_MIN);
+    }
+}
+
+
+
+
+
+class BST {
+public:
+  int value;
+  BST *left;
+  BST *right;
+
+  BST(int val);
+  BST &insert(int val);
+};
+
+bool validateBst(BST *tree) {
+  // Write your code here.
+  return false;
+}
+
+
+
+
+->Inorder Traversal --------------------------
+
+
+void inOrderTraverse(BST *tree, vector<int> &array) {
+	if (tree != nullptr) {
+		inOrderTraverse(tree->left, array);
+		array.push_back(tree->value);
+		inOrderTraverse(tree->right, array);
+	}
+}
+
+
+
+-> Important thing
+
+1. we should keep stack
+2. we should push data to stack if we have not visited the left.
+How we find we have not visited the left . ??
+We keep prev node information
+
+Now when pushing we see that
+(prev is curr node's left child , prev is right child of node ) and curr should not be left child of prev. (we have already visited it )
+then we push
+3. next if above fails thne we should pop and enter the right child
+
+
+ BST *prev, *curr;
+    stack<BST*> S;
+    prev = nullptr;
+    bool test = true;
+
+    S.push(tree);
+    if (test) {
+        cout << "Push :" << tree->value << endl;
+    }
+    // we will iterate till stack is not empty, till all the elements are not placed in stack
+    while(!S.empty()) {
+        if (test) {
+            cout << "Size :" << S.size() << endl;
+        }
+        // get the top
+        curr = S.top();
+
+        // we have not visited left child
+        if ((curr->left != nullptr) && ((prev == nullptr) || (prev->left == curr) || (prev->right == curr)) && (curr->left != prev)) {
+            S.push(curr->left);
+            if (test) {
+                cout << "Push :" << curr->left->value << endl;
+            }
+            prev = curr;
+        } else if (curr->left == nullptr) {  // we have encounter node with no left child,
+            // visit right child
+            S.pop();
+            if (test) {
+                cout << "Pop: " << curr->value << endl;
+            }
+            array.push_back(curr->value);
+            if (curr->right) {
+                S.push(curr->right);
+                if (test) {
+                    cout << "Push  :" << curr->right->value << endl;
+                }
+            }
+            prev = curr;
+        } else if (curr->left == prev) { // we have encounter last parent of last element popped
+            S.pop();
+            if (test) {
+                cout << "Pop: " << curr->value << endl;
+            }
+            array.push_back(curr->value);
+            if (curr->right) {
+                S.push(curr->right);
+                if (test) {
+                    cout << "Push  :" << curr->right->value << endl;
+                }
+            }
+            prev  = curr;
+        } else {
+            S.pop();
+            if (test) {
+                cout << "Pop: " << curr->value << endl;
+            }
+            array.push_back(curr->value);
+            if (curr->right) {
+                S.push(curr->right);
+                if (test) {
+                    cout << "Push  :" << curr->right->value << endl;
+                }
+            }
+            prev  = curr;
+        }
+    }
+
+can we use parents to accompish that. easy (just see if parent then dont push )
+
+BinaryTree
+void PrintInorder(BST *node, ostream &out) {
+        if (node != nullptr) {
+            PrintInorder(node->left, out);
+            out << node->value << " " ;
+            PrintInorder(node->right, out);
+        }
+    }
+
+    void inorder(ostream &out = cout) {
+            PrintInorder(this, out);
+            out << endl;
+    }
+
+
+
+
+
+-> PreOrder Traversal ->
+
+
+
+void preOrderTraverse(BST *tree, vector<int> &array) {
+	if (tree != nullptr) {
+		array.push_back(tree->value);
+		preOrderTraverse(tree->left, array);
+		preOrderTraverse(tree->right, array);
+	}
+}
+
+
+
+
+-> PostOrder Traversal ->
+
+
+void postOrderTraverse(BST *tree, vector<int> &array) {
+	if (tree != nullptr) {
+		postOrderTraverse(tree->left, array);
+		postOrderTraverse(tree->right, array);
+		array.push_back(tree->value);
+	}
+}
+
+
+----------------------------------------------------------
+Level order
+
+
+
+-----------------------------------------------------------
+two tree are identical
+
+root == null && root == null -> true
+
+if ((tree1 != null) && (tree2 == null) || (tree1 == null) && (tree2 != null))
+    return false
+return identical(tree1->left, tree2->left) && identical(tree1->right, tree2->right)
+
+
+-----------------------------------------------
+diameter of BST -> length of longest path between 2 leaves.
+
+
+
+
+           10
+          /   \
+        8      12
+      /        / \
+     5       11   15
+   /  \          / \
+  3    6       13    20
+                  \
+                  14
+
+
+Diameter -> 3, 5, 8, 10, 12, 15, 13, 14   -> 8
+
+diameter -> height of left + height of right
+for every node, which one is height is the diameter.
+
+if node is null, then height will be null
+else
+    ltHeight ->
+    rtHeight  ->
+    diameter = (ltHeight + rtHeight + 1)  --> 1 for including nodes. (we keep record of diameter of each node and save the maximum one)
+    return (ltHeight > rtHeight) ? ltHeight + 1 ? rtHeight + 1;
+
+
+Height(BST *node, int& Diameter) {
+if (node == nullptr) {
+    return 0;
+}
+ltHeight = Height(node->left, Diameter);
+rtHeight = Height(node->right, Diameter);
+
+diameter = ltHeight+ rtHeight + 1;
+
+if (diameter > Diameter) {
+    Diameter = diameter;
+}
+
+return (ltHeight > rtHeight) ? ltHeight +1 : rtHeight + 1;
+}
+
+
+int
+Height(BinaryTree *node, int& Diameter) {
+    if (node == nullptr) {
+        return 0;
+    }
+    int diameter = 0;
+    int ltHeight = Height(node->left, Diameter);
+    int rtHeight = Height(node->right, Diameter);
+
+    diameter = ltHeight+ rtHeight + 1;
+
+    if (diameter > Diameter) {
+        if (test) {
+            cout << __LINE__ << " ->" << "Node: " << node->value << " Prev: " << Diameter << "Cur: " << diameter << endl;
+        }
+        Diameter = diameter;
+    }
+    int ret = (ltHeight > rtHeight) ? ltHeight +1 : rtHeight + 1;
+    if (test) {
+        cout << __LINE__ << " ->" << "Node: " << node->value << " Height: " << ret << endl;
+    }
+    return ret;
+}
+
+
+int binaryTreeDiameter(BinaryTree *root) {
+    if (root == nullptr) {
+        return -1;
+    }
+    int Diameter = 0;
+    int height = Height(root, Diameter);
+    bool test = false;
+
+    if (test) {
+        cout << __LINE__ << " -> " << "Diameter :" << Diameter << endl;
+        cout << __LINE__ << " -> " <<"Height :" << height << endl;
+     }
+    return Diameter;
+}
+
+------------------ test tree -----------------
+void
+test_diameter() {
+    BST *curr = nullptr;
+    int ret;
+    vector<int> list;
+
+    BST *root = new BST(10);
+    curr = root;
+    list = {5, 3, 8, 12, 11, 15, 13, 17};
+    for (auto &data:list) {
+        curr->insert(data);
+    }
+    cout << "Input" << endl;
+    cout << "Inorder" << endl;
+    inOrderTraverse(root, res);
+    for (auto &data:res) {
+        cout << data << " ";
+    }
+    cout << endl;
+    res.clear();
+    ret = binaryTreeDiameter(curr);
+    cout << "Output" << endl;
+    cout << "Diameter: " << ret << endl;
+}
+
+
+
+left ->
+right ->
+
+height of left
+height of right
+
+if left + right
+
+height(node, diameter) {
+if (node is null )
+    return 0;
+}
+height = height(left) + height(right) + 1;
+if (height > diameter) {
+    diameter = height;
+}
+
+return max(height(left), height(right));
+}
+
+---------------------------
+path sum
+
+if (node )
+
+pathsum(root->left, sum-root.value) || pathsum(root->right, sum-root.value)
+
+
+
+--------------------
+ancestor
+bool
+printAncestor(BST *root, BST *node, bool ret)
+{
+    if (root == null) {
+        return false;
+    }
+
+    if (root->left == node) || (root->right == node) {
+        cout << root;
+        return true;
+    }
+
+    ret = printAncestor(root->left) || printAncestor(root->right);
+
+    if (ret)) {
+        cout << root;
+    }
+
+    return ret;
+}
+
+
+            10
+        8         12
+     5        11      15
+  3      6         13    20
+                      14
+
+-------------------------------------------------------
+LCA -> Least common ancestor of two nodes in Binary Tree
+
+BST *
+LCA (BST *root, BST *node1, BST *node2)
+{
+
+if (root == node1 ) && (root == node2) {
+    return root;
+if (root == node1) || (root == node2) {
+    return root;
+}
+left = LCA(root->left, node1, node2)
+right = LCA (root->right, node1, node2)
+
+if (left && right) {
+    return root;
+} else {
+    ret = (left != null) ? left : right;
+}
+return ret;
+}
+
+-------------------------------------------------------
+
+Branch Sum -->
+
+Given Binary Tree, find the branch sum for the tree <left to right >
+
+Idea -> level order. <DFS>  -> with recursion, we have issue of double.
+So go by basic of tree (BST)
+
+->  if (node == nullptr)
+        return
+    if (both child are null) then
+        sum = sum + node->value
+        enter sum to the res array
+    sum = sum + node->value;
+    func(node->left, sum, res)
+    func(node->right, sum, res)
+
+void
+branchSum_int(BinaryTree *root, int sum, vector<int> &res) {
+ bool test = true;
+    if (root == nullptr) {
+        return;
+    }
+    if ((root->left == nullptr) && (root->right == nullptr)) {
+        sum = sum + root->value;
+        res.push_back(sum);
+    }
+    sum = sum + root->value;
+    branchSum_int(root->left, sum, res);
+    branchSum_int(root->right, sum, res);
+}
+
+vector<int> branchSums(BinaryTree *root) {
+  if (root == nullptr) {
+      return {};
+  }
+	vector<int> res;
+  int sum = 0;
+  branchSum_int(root, sum, res);
+  return res;
+}
+
+            10
+          /   \
+        8      12
+      /        / \
+     5       11   15
+   /  \          / \
+  3    6       13    20
+                  \
+                  14
+
+
+           1
+        /     \
+       2       3
+     /  \     /  \
+    4    5   6   7
+   / \   /   \    \
+  8  9  10   11   12
+
+Sum ->
+
+15 -> 1 + 2 + 4 + 8
+16 -> 1 + 2 + 4 + 9
+17 -> 1 + 2 + 5 + 10
+21 -> 1 + 3 + 6 + 11
+23 -> 1 + 3 + 7 + 12
+
+{15, 16, 17, 21, 23}
+
+
+------------------------------------------------------------------------------
+
+Node Depths.
+Given Binary tree, return sum of depths of the all the nodes in binary tree.
+
+            1
+          /  \
+         /    \
+        /      \
+       2        3
+     /  \      /  \
+    /    \    /    \
+   4      5   6     7
+  / \
+ /   \
+8     9
+
+Time => o(N)
+space = >o(H)
+
+int
+nodeheight(BST *root)
+    if (root == nullptr)
+        return -1;
+    vector<int> res;
+    int height = 0;
+    nodeheight_int(root, height, res);
+    for (auto &data:res) {
+        cout << res << " " ;
+    }
+    cout << endl;
+
+    cout << "Node Height : " << height << endl;
+
+void
+nodeheight_int(BST *node, int &height, vector<int> &res)
+    if (node ) {
+        res.push(height + 1);
+        nodeheight_int(node->left, height + 1, res);
+        nodeheight_int(node->right, height + 1, res);
+    }
+
+
+
+  answer -> 16
+  1 + 1 + 2 + 2 + 2 + 2 + 3 + 3 -> 16
+
+Each node encounter -> add one
+
+
+
+                   10
+                  /  \
+                 /    \
+                5     12
+               / \   /  \
+              3   8  11 15
+                        / \
+                       13  17
+
+        1 + 1 + 2 + 2 + 2 + 2 + 3 + 3 ->
+
+-----------------------------------------------------------------
+
+Invert binary tree  -> mirror binary tree
+
+swap
+    left -> right node
+    right -> left node
+
+
+                Input                          Output
+                   10                             10
+                  /  \                           /  \
+                 /    \                         /    \
+                5     12                       12     5
+               / \   /  \                     /  \   / \
+              3   8  11 15                   8   3  15  11
+                        / \                         / \
+                       13  17                      17 13
+
+
+void
+mirror (BST *&root) {
+    if (root != nullptr) {
+        BST *temp = root->left;
+        root->left = root->right;
+        root->right = temp;
+        mirror(root->left);
+        mirror(root->right);
+    }
+}
+
+------------------------------------------------------------------------------------------------------
+Successor of Node
+
+Given a Binary tree, Root and a node, find successor of the node. <in order way >
+
+Sucessor -> next node visited.
+
+if no successor return null
+
+                   10
+                  /  \
+                 /    \
+                5     12
+               / \   /  \
+              3   8  11 15
+            /      \     / \
+           2        9   13  17
+                   /         \
+                  6          18
+Use iterative inorder .
+
+10, 5, 12, 3, 8, 9, 6, 11, 15, 13, 17, 18, 3, 2
+
+curr->left == prev
+curr->right == prev
+
+if (node == prev) {
+    isDone = true;
+    break;
+}
+return curr;
+------->
+
+    stack<BinaryTree *> S;
+    BinaryTree *curr, *prev, *last;
+    bool test = false;
+    prev = nullptr;
+
+    if (tree == nullptr) {
+        return nullptr;
+    }
+
+		S.push(tree);
+
+		if (tree == nullptr) {
+        return nullptr;
+    }
+
+    while(!S.empty()) {
+        curr = S.top();
+		/*
+         * left is not null, we have not visited yet, prev, prev->left == curr or last. prev->right == curr ,means last we visted the node and now left or right child. curr->left != prev means, we are not self looping as we have successfully visted left */
+         */
+        if ((curr->left != nullptr) && ((prev == nullptr) || (prev->left == curr) || (prev->right == curr)) && (curr->left != prev)) {
+            S.push(curr->left);
+
+        } else if (curr->left == nullptr) {
+            S.pop();
+            /* push the right we have visted the node is visted */
+			if (curr->right) {
+				S.push(curr->right);
+			}
+            /* we found the node */
+            if (node == last) {
+					break;
+			} else {
+					last = curr;
+			}
+
+        } else if (curr->left == prev) {
+            S.pop();
+            /* we visted the curr and now push the right */
+			if (curr->right != nullptr) {
+				S.push(curr->right);
+            }
+            /* we found node */
+			if (node == last) {
+				break;
+            } else {
+				last = curr;
+			}
+		} else {
+            /* This part not needed */
+			S.pop();
+			if (curr->right != nullptr) {
+				S.push(curr->right);
+			}
+
+            if (node == last) {
+			    break;
+            } else {
+				last = curr;
+			}
+       }
+
+        prev = curr;
+    }
+
+    /* could be same node */
+	if (curr == last) {
+        return nullptr;
+    } else {
+        return curr;
+    }
+}
+
+
+With parent pointer -
+
+
+-----------------------------------------------------------------------------------------------
+Given a tree, find if its height balanced or not.
+A tree is height balanced if diff between left height and right height is atmost 1.
+
+10, 5, 12, 3, 8, 7, 9, 14
+                   10
+                  /  \
+                 /    \
+                5     12
+               / \      \
+              3   8      14
+                 / \
+                7   9
+-> yes
+
+4, 5, 6, 7, 1
+         4
+        / \
+       1   5
+            \
+             6
+              \
+               7
+-> no
+
+logic ->
+1. find left and right height recursively and compare if the diff is at most 1, ow ....
+
+psuedocode ->
+bool isBalanced
+if (isBalanced == false) {
+    return -1;
+}
+
+if (node == null) {
+    return 0;
+}
+
+lt = height(left);
+rt = height (right);
+
+if (abs(lt-rt) > 1) {
+    isBalanced = false;
+    return -1;
+} else {
+    ht = (lt > rt) ? (lt + 1) : (rt + 1);
+    return ht;
+}
+
+
+code ->
+class BinaryTree {
+public:
+  int value;
+  BinaryTree *left = nullptr;
+  BinaryTree *right = nullptr;
+
+  BinaryTree(int value) { this->value = value; }
+};
+
+int
+heightBalancedBinaryTree_helper(BinaryTree *tree, bool &isBalanced) {
+
+    bool test = false;
+    /* in previous recursion stack, we found unbalanced node */
+    if (isBalanced == false) {
+        if (test) {
+            cout << __LINE__ << " -> " << "Balanced :" << isBalanced << endl;
+        }
+        return -1;
+    }
+
+    /* we reached leaf */
+    if (tree == nullptr) {
+        return 0;
+    }
+
+    int lt, rt, ht;
+    /* left height */
+    lt = heightBalancedBinaryTree_helper(tree->left, isBalanced);
+    /* right height */
+    rt = heightBalancedBinaryTree_helper(tree->right, isBalanced);
+
+   /* we already found unbalanced node */
+    if ((lt == -1) || (rt == -1)) {
+        return -1;
+    }
+    /* verify critrea */
+    if (abs(lt-rt) > 1) {
+        isBalanced = false;
+        if (test) {
+            cout << __LINE__ << " -> " << "UnBalanced Node:" << tree->value << endl;
+        }
+        return -1;
+    } else {
+        ht = (lt > rt) ? (lt + 1) : (rt + 1);
+        return ht;
+    }
+}
+
+
+bool heightBalancedBinaryTree(BinaryTree *tree) {
+  bool isBalanced = true;
+  bool test = false;
+  int ret = heightBalancedBinaryTree_helper(tree, isBalanced);
+  if (ret == -1) {
+      if (test) {
+          cout << "IsBalanced : " << isBalanced << " ret: " << ret << endl;
+      }
+      isBalanced = false;
+  } else {
+      if (test) {
+          cout << "IsBalanced : " << isBalanced << " ret: " << ret << endl;
+      }
+      isBalanced = true;
+  }
+  return isBalanced;
+}
+
+
+    BST *curr = nullptr;
+    bool ret;
+    BST *node, *succ;
+    vector<int> list;
+
+
+--------------------------------------------------------------------------------------
+kth largest node -
+
+
+                15
+               /   \
+              /     \
+             5      20
+            / \     / \
+           2   5   17  22
+          / \
+         1  3
+
+    Input ->
+        {15, 5, 20, 2, 5, 17, 22, 1, 3 }
+        k = 3
+    Ouput -> 3
+
+10, 5, 12, 3, 8, 7, 9, 14
+                   10
+                  /  \
+                 /    \
+                5     12
+               / \      \
+              3   8      14
+                 / \
+                7   9
+    InPut = {10, 5, 12, 3, 8, 7, 9, 14}
+    k = 4
+
+
+More than one occurance of node, only one node is picked.
+
+O(H + K)
+logn + K
+O(H) -> space
+
+void
+inOrderTraverseKthLargest(BST *tree, vector<int> &res) {
+    if (tree == nullptr) {
+        return;
+    }
+    inOrderTraverseKthLargest(tree->left, res);
+    res.push_back(tree->value);
+    inOrderTraverseKthLargest(tree->right, res);
+}
+
+int
+findKthLargestValueInBst(BST *tree, int k) {
+    vector<int> traverse;
+    inOrderTraverseKthLargest(tree, traverse);
+    return  traverse[traverse.size()-k];
+}
+
+
+------------------Kth order statistics BSTree ---------------------------
+ret = go to node->left with count
+if (ret == k) {
+    return top;
+}
+if (node)  {
+{
+ if (top != node) {
+    push(node);
+    count = count + 1;
+ }
+}
+ret = go to node->right with count
+if (ret == k) {
+    return top;
+}
+return count
+
+
+class BST {
+public:
+  int value;
+  BST *left = nullptr;
+  BST *right = nullptr;
+
+  BST(int value) { this->value = value; }
+};
+
+
+int findKthLargestValueInBstHelper(BST *tree, int k, int count, Stack<BST*> &S) {
+    bool test = true;
+    if (tree == nullptr) {
+        return 0;
+    }
+    /*travel left */
+    int lCount = findKthLargestValueInBstHelper(tree->left, count, S);
+
+    /* we found kth largest */
+    if (rCount >= k) {
+        if (test) {
+            if (rCount == K) {
+                cout << __LINE__ << " -> " << "Kth largest value :" << S.top()->value << endl;
+            }
+        }
+        return lCount;
+    }
+
+    if (node->value != S.top()->value) {
+        count = count + 1;
+        S.push(node);
+    }
+
+    /* Travel right */
+    int rCount = findKthLargestValueInBstHelper(tree->right, count, S)
+    if (rCount >= k) {
+        if (test) {
+            if (rCount == k) {
+                cout << __LINE__ << " -> " << "Kth largest value :" << S.top()->value << endl;
+            }
+        }
+        return rCount;
+    }
+
+    return (rCount + lCount + 1);
+}
+int findKthLargestValueInBst(BST *tree, int k) {
+    if (tree == nullptr) {
+        return 0;
+    }
+
+    stack <BST *> S;
+    bool test = true;
+    int ret = findKthLargestValueInBstHelper(tree, k, 0, S);
+    if (test) {
+        cout << __LINE__ << " -> " << "Ret : " << ret << " Kth largest Value: " << S.top()->value << endl;
+    }
+    return S.top()->value;
+}
+
+---------------------------------------------------------------------------------------
+Min Height BST
+
+Given Sorted array, create balanced BST
+
+-> use the binary search technique to insert in BTREE
+
+void
+minHeightBstHelper(vector<int> array, int start, int end, BST* node, int &count) {
+    if ((start <= end) && (count <= array.size())) {
+        mid = (start + end)/2;
+        node->insert(array[mid]);
+        count = count + 1;
+        minHeightBstHelper(array, start, mid - 1, node);
+        minHeightBstHelper(array, mid + 1 , end, node);
+    }
+}
+
+BST *minHeightBst(vector<int> array) {
+   int start = 0;
+   int end  = array.size() - 1;
+   int mid = (start + end)/2;
+
+   if (array.size() == 0) {
+       return nullptr;
+   }
+
+   if (array.size() == 1) {
+       BST *root = new BST(array[0]);
+       return root;
+   }
+   int count = 1;
+   BST *root = new BST(array[mid]);
+   minHeightBstHelper(array, start, mid - 1, root, count);
+   minHeightBstHelper(array, mid + 1, end, root, count);
+   return root;
+}
+
+
+  return nullptr;
+}
+
+  1
+ / \
+0    2
+     \
+      3
+
+
+0 1 2 3
+0 1 2 3 4
+  2
+
+
+
+0 1 2 3 4
+0 4 ->  2
+
+0 1 2 3 4 5
+0 5 ->  2
+
+0 1 2 3 4 5
+1-4 -> 2
+1->5 -> 3
+
+(high + low )/2
+
