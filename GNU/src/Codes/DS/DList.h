@@ -2,7 +2,7 @@
 // Created by kamr on 9/2/2021.
 //
 
-#ifndef GNU_DLIST_H
+#ifndef GNU_DOUBLELINKEDLIST_H
 #define GNU_DLIST_H
 
 
@@ -188,4 +188,4 @@ public:
     }
 };
 
-#endif //GNU_DLIST_H
+#endif //GNU_DOUBLELINKEDLIST_H

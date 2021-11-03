@@ -56,4 +56,4 @@ add_executable(GNU
         src/Coding/Recurssion/KnightTour.h
         src/Coding/Tree/BST.h
         src/Coding/Tree/BSTTest.h
-        src/Coding/Tree/closestValue.h src/Coding/Tree/validateBST.h src/Coding/Tree/traverse.h src/Coding/Tree/branchSum.h src/Coding/Tree/NodeHeights.h src/Coding/Tree/mirror.h src/Coding/Tree/Diameter.h src/Coding/Tree/Successor.h src/Coding/Tree/CheckheightBalanced.h src/Coding/Tree/KthLargestValue.h src/Coding/Tree/minHeightBST.h)
+        src/Coding/Tree/closestValue.h src/Coding/Tree/validateBST.h src/Coding/Tree/traverse.h src/Coding/Tree/branchSum.h src/Coding/Tree/NodeHeights.h src/Coding/Tree/mirror.h src/Coding/Tree/Diameter.h src/Coding/Tree/Successor.h src/Coding/Tree/CheckheightBalanced.h src/Coding/Tree/KthLargestValue.h src/Coding/Tree/minHeightBST.h src/Coding/List/DoubleLinkedList.h src/Coding/List/SingleLinkedList.h src/Coding/List/RemoveDuplicatesSortedLinkedList.h src/Coding/Recurssion/RatInMaze.h src/Coding/List/RemoveKNodeFromEnd.h src/Coding/List/LinkedList.h src/Coding/List/SumOfLists.h src/Coding/List/Loop.h src/Coding/List/ReverseList.h)

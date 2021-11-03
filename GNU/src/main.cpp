@@ -48,12 +48,19 @@
 #include "Coding/Tree/Successor.h"
 #include "Coding/Tree/CheckheightBalanced.h"
 #include "Coding/Tree/KthLargestValue.h"
+#include "Coding/List/DoubleLinkedList.h"
+#include "Coding/List/SingleLinkedList.h"
+#include "Coding/List/RemoveDuplicatesSortedLinkedList.h"
+#include "Coding/Recurssion/RatInMaze.h"
+#include "Coding/List/LinkedList.h"
+#include "Coding/List/RemoveKNodeFromEnd.h"
+#include "Coding/List/SumOfLists.h"
+#include "Coding/List/Loop.h"
+#include "Coding/List/ReverseList.h"
 
 
 int main() {
     std::cout << "Testing main " << std::endl;
-    test_KLargestvalueInBST();
-
-
+    test_reverse();
     return 0;
 }
