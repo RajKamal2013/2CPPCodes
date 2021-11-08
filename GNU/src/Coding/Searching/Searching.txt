@@ -1,0 +1,121 @@
+Searching
+
+1. Given a sorted array, and a target, find the index of target in sorted array. <if first index, then iterate left till we find the data is equal to target >
+    DIvide and Conquer
+
+int
+binarySearchHelper(vector<int> array, int start, int end, int target) {
+    /* return criteria */
+    bool  dbgLog = false;
+    if (start <= end) {
+        int mid = (start + end) / 2;
+        if (array[mid] == target) {
+            if (dbgLog) {
+                cout << "found idx at " << mid << endl;
+            }
+            return mid;
+        } else if (array[mid] > target) {  /* we go left */
+            return binarySearchHelper(array, start, mid - 1, target);
+        } else {   /* go right */
+            return binarySearchHelper(array, mid + 1, end, target);
+        }
+    } else {
+        return -1;
+    }
+}
+
+/* return index in array where array[i]  == target */
+int
+binarySearch(vector<int> array, int target) {
+    /* array is empty */
+    if (array.size() == 0) {
+        return -1;
+    }
+
+    /* just one element */
+    if (array.size() == 1) {
+        if (array[0] == target) {
+            return 0;
+        } else {
+            return -1;
+        }
+    }
+
+    if (array.size() == 2) {
+        if (array[0] == target){
+            return 0;
+        } else if (array[1] == target) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
+    return binarySearchHelper(array, 0, array.size() - 1, target);
+}
+
+
+---------------------------------------------------------------------------
+Find largest three number
+
+Given an array of atleast 3 number, find the largest 3 number.
+
+Input => {141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7}
+Output=> {18, 141, 541}
+
+Input => {10, 5, 9, 10, 12}
+Output => {10, 10, 12}
+
+-> keep three numbers to track, max1, max2, max3 while iterating the array
+
+vector<int>
+findThreeLargestNumbers(vector<int> array) {
+
+    if (array.size() < 3) {
+        return {};
+    }
+
+    int largest, secondLargest, thirdLargest;
+
+    if (array[0] >= array[1]) {
+        if (array[0] >= array[2]) {
+            largest = array[0];
+            secondLargest = array[2];
+            thirdLargest = array[1];
+        } else {
+            largest = array[2];
+            secondLargest = array[0];
+            thirdLargest = array[1];
+        }
+    } else {
+        if (array[1] >= array[2]) {
+            largest = array[1];
+            secondLargest = array[2];
+            thirdLargest = array[0];
+        } else {
+            largest = array[2];
+            secondLargest = array[1];
+            thirdLargest = array[0];
+        }
+    }
+
+    for (int i = 3; i <= array.size(); i++) {
+        if (array[i] >= largest) {
+            thirdLargest = secondLargest;
+            secondLargest  = largest;
+            largest = array[i]
+         } else if ((array[i] < largest) && (array[i] >= secondLargest)) {
+             thirdLargest = secondLargest;
+             secondLargest = array[i];
+         } else if ((array[i] < largest) && (array[i] < secondLargest) && (array[i] > thirdLargest)) {
+             thirdLargest = array[i];
+         } else {
+             // do nothing;
+         }
+    }
+
+    output.push_back(thirdLargest);
+    output.push_back(secondLargest);
+    output.push_back(largest);
+    return output;
+}

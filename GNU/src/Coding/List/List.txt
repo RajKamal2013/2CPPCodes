@@ -1,0 +1,952 @@
+List
+----------------------------------------------------------------------
+Important ones
+1. Creation of list
+2. Reverse of list
+3. Median of 2 sorted list
+
+-------------------------------------------------------------------------
+class Node {
+public:
+  int value;
+  Node *prev;
+  Node *next;
+
+  Node(int value);
+};
+
+// Feel free to add new properties and methods to the class.
+class DoublyLinkedList {
+public:
+  Node *head;
+  Node *tail;
+
+  DoublyLinkedList() {
+    head = nullptr;
+    tail = nullptr;
+  }
+
+
+/*
+ * if (head is null) then head = tail = node.
+ * else remove(node) -> if exits  ->
+ * node->next = head;
+ * head->prev = node;
+ * head = node;
+ */
+  void setHead(Node *node) {
+
+  }
+
+/* if (tail is null) then head  = tail = node
+ * else remove(node) -> if exists ->
+ * tail->next = node;
+ * node->prev = tail;
+ * tail = node;
+ */
+  void setTail(Node *node) {
+    // Write your code here.
+  }
+
+/* if (nodeToInsert == head) && (nodeToInsert == tail) then -> nothing. -> one node.
+ * remove(nodeToInsert);
+ * if (node does not exists in list) -> do nothing. -->
+ * nodeToInsert->next = node;
+ * nodeToInsert->prev = node->prev;
+ * if (node == head)  -> nodeToInsert becomes head
+ * else node->prev->next = nodeToInsert;
+ * node->prev = nodeToInsert
+ */
+
+
+}
+  void insertBefore(Node *node, Node *nodeToInsert) {
+    // Write your code here.
+  }
+
+
+/*
+ * if (nodeToInsert == head) and (nodeToInsert == tail ) -> do nothing
+ * remove(nodeToInsert)
+ * if (node does not exist in list ) -> do nothing
+ * nodeToInsert->prev = node;
+ * nodeToInsert->next = node->next;
+ * if (node == tail) nodeToInsert->next = nullptr and nodeToInsert becomes tail
+ * else node->next->prev = nodeToInsert;
+ * node->next = nodeToInsert;
+ */
+  void insertAfter(Node *node, Node *nodeToInsert) {
+    // Write your code here.
+  }
+
+/* if (position == 1)  -> setHead(nodeToInsert)
+ * Node *curr = head;, pos = 0;
+ * while (pos != position) {
+     curr = curr->next;
+     pos++
+ }
+ * if (node == nullptr) -> setTail(nodeToInsert)
+ * else insertBefore(curr, nodeToInsert);
+ */
+
+  void insertAtPosition(int position, Node *nodeToInsert) {
+    // Write your code here.
+  }
+
+
+  /* Node *curr = head;
+   * while (curr != nullptr) {
+
+       if (curr->value == value) {
+           nodeToRemove = curr->next;
+           curr = curr->next;
+           remove(nodeToRemove);
+       } else {
+           curr = curr->next;
+       }
+   }
+   */
+  void removeNodesWithValue(int value) {
+    // Write your code here.
+  }
+
+
+ /*
+  * if (node == head)  -> node = node->next;
+  * if (node == tail)  -> tail = node->prev;
+  * if (node->prev != nullptr) -> node->prev->next = node->next;
+  * if (node->next != nullptr) -> node->next->prev=  node->prev;
+  * node->next = nullptr
+  * node->prev = nullptr
+  */
+  void remove(Node *node) {
+    // Write your code here.
+  }
+
+
+/* Node *curr = head ;
+ * while(curr != nullptr) {
+     if (curr->value == value) {
+         ret = true;
+         break;
+     }
+     curr = curr->next;
+ }
+ */
+  bool containsNodeWithValue(int value) {
+    // Write your code here.
+    return false;
+  }
+};
+
+Assume I have list
+1 <-> 2 <-> 3 <-> 4 <-> 5
+
+StandAlone Nodes -> 3, 3, 6
+
+setHead(4) ->
+Input  ->  1 <-> 2 <-> 3 <-> 4 <-> 5
+Output ->  4 <-> 1 <-> 2 <-> 3 <-> 5
+
+setTail(6) ->
+Input  -> 4 <-> 1 <-> 2 <-> 3 <-> 5
+Output -> 4 <-> 1 <-> 2 <-> 3 <-> 5 <-> 6
+
+/* Insert node 3 before 6 */ -> move existing node before 6
+insertBefore(6, 3) ->
+Input  -> 4 <-> 1 <-> 2 <-> 3 <-> 5 <-> 6
+Output -> 4 <-> 1 <-> 2 <-> 5 <-> 3 <-> 6
+
+insertAfter(6, 3) ->  /* Add standAlone node 3 after 6 */
+Input  -> 4 <-> 1 <-> 2 <-> 5 <-> 3 <-> 6
+Output -> 4 <-> 1 <-> 2 <-> 5 <-> 3 <-> 6 <-> 3
+
+insertAtPosition(1, 3) -> /* Insert a standAlone node with Value 3 in front of 1 */
+Input ->  4 <-> 1 <-> 2 <-> 5 <-> 3 <-> 6 <-> 3
+Output -> 3 <-> 4 <-> 1 <-> 2 <-> 5 <-> 3 <-> 6 <-> 3
+
+removeNodesWithValue(3) -> /* Insert all nodes with value 3 */
+Input ->  3 <-> 4 <-> 1 <-> 2 <-> 5 <-> 3 <-> 6 <-> 3
+Output -> 4 <-> 1 <-> 2 <-> 5 <-> 6
+
+remove(2) /* Remove node with value 2 */
+Input ->  4 <-> 1 <-> 2 <-> 5 <-> 6
+Output -> 4 <-> 1 <-> 5 <-> 6
+
+containsNodeWithValue(5)
+Input ->  4 <-> 1 <-> 5 <-> 6
+Output -> true
+
+---------------------------------------
+Single Linked List
+
+class SingleLinkedList {
+    Node *head;
+    Node *tail;
+    bool log, dbg;
+
+public:
+    SingleLinkedList() {
+        head = nullptr;
+        tail = nullptr;
+        log = true;
+        dbg = true;
+    }
+
+    bool contains(Node *node) {
+        Node *curr = head;
+        bool nodePresent = false;
+        while (curr != nullptr) {
+            if (curr == node) {
+                nodePresent = true;
+                break;
+            }
+            curr = curr->next;
+        }
+        return nodePresent;
+    }
+
+    Node* getTail() {
+        return tail;
+    }
+
+    Node* getHead() {
+        return head;
+    }
+
+    int size() {
+        int count = 0;
+        Node *curr = head;
+        while(curr != nullptr) {
+            count = count + 1;
+            curr = curr->next;
+        }
+        return count;
+    }
+
+    void insertAfter(Node *node, Node *nodeToInsert) {
+        if ((nodeToInsert == head) && (nodeToInsert == tail)) {
+            if (log) {
+                cout << __LINE__ << " -> " << "Error:Node is both head and tail "<< endl;
+            }
+            return;
+        }
+        if (node == tail) {
+            nodeToInsert->next = tail->next;
+            tail->next = nodeToInsert;
+            tail = nodeToInsert;
+            return;
+        }
+
+        nodeToInsert->next = node->next;
+        node->next = nodeToInsert;
+    }
+
+    void insertBefore(Node *node, Node *nodeToInsert) {
+        if ((nodeToInsert == head) && (nodeToInsert == tail)) {
+            if (log) {
+                cout << __LINE__ << " -> " << "Error:Node is both head and tail "<< endl;
+            }
+            return;
+        }
+        /* We want new node to become head */
+        if (node == head) {
+            nodeToInsert->next = head;
+            head = nodeToInsert;
+            if (dbg) {
+                cout << __LINE__ << " ->" << "Inserting at head " << endl;
+            }
+            return;
+        }
+        Node *curr, *prev;
+        curr= head;
+        prev = nullptr;
+        /* iterate to get the previous */
+        while (curr != nullptr) {
+            if (curr == node) {
+                break;
+            } else {
+                prev = curr;
+                curr = curr->next;
+            }
+        }
+        if (curr != nullptr) {
+            prev->next = nodeToInsert;
+            nodeToInsert->next = node;
+        } else {
+            if (log) {
+                cout << __LINE__ << " -> " << "Error:Node: " << node->value << " does not exist" << endl;
+            }
+        }
+    }
+
+    void insertAtPosition(int position, Node *nodeToInsert) {
+        if (position == 1) {
+            setHead(nodeToInsert);
+            return;
+        }
+
+        if (head == nullptr) {
+            if (log) {
+                cout << __LINE__ << " -> " << "Error:Head does not exist" << endl;
+            }
+            return;
+        }
+
+        Node *curr = head;
+        Node *prev = nullptr;
+        int pos = 1;
+        curr = head;
+        while ((curr != nullptr) && (pos != position)) {
+            prev = curr;
+            curr = curr->next;
+            pos = pos + 1;
+        }
+
+        if (pos == position) {
+            prev->next = nodeToInsert;
+            if (curr == nullptr) {
+                nodeToInsert->next = nullptr;
+                tail = nodeToInsert;
+            } else {
+                nodeToInsert->next = curr;
+            }
+        } else {
+            if (log) {
+                cout << __LINE__ << " -> " << "Position:" << position << "is greater then node count " << endl;
+            }
+        }
+    }
+
+    void setHead(Node *newNode) {
+        if (head == nullptr) {
+            head = newNode;
+            tail = newNode;
+            if (dbg) {
+                cout << __LINE__ << " ->" << "Tail is null" << endl;
+            }
+            return;
+        }
+        insertBefore(head, newNode);
+    }
+
+    void setTail(Node *newNode) {
+        if (tail == nullptr) {
+            head = tail = newNode;
+            if (dbg) {
+                cout << __LINE__ << " ->" << "Tail is null" << endl;
+            }
+            return;
+        }
+        insertAfter(tail, newNode);
+    }
+
+    void insert(Node *newNode) {
+        setHead(newNode);
+    }
+
+    void append(Node *newNode) {
+        setTail(newNode);
+    }
+
+    void remove(Node *nodeToRemove) {
+       if (nodeToRemove == head) {
+           head = head->next;
+           if (head->next == nullptr) {
+               head= tail = nullptr;
+           }
+           return;
+       }
+
+       Node *curr, *prev;
+       curr = head;
+       prev = nullptr;
+       while ((curr!= nullptr) && (curr != nodeToRemove)) {
+           prev = curr;
+           curr = curr->next;
+       }
+       if (curr == nullptr) {
+            if (log) {
+                cout << __LINE__  << " -> " << "Node to remove does not exit" << endl;
+            }
+           return;
+       }
+
+       prev->next = curr->next;
+       if (curr->next == nullptr) {
+           tail = prev;
+       }
+    }
+    /*
+    void removeAll(Node *node) {
+
+    }
+     */
+};
+
+
+void
+List_Display(Node *curr) {
+    while (curr != nullptr) {
+        cout << curr->value << " ";
+        curr = curr->next;
+    }
+    cout << endl;
+}
+
+
+---------------------------------------
+Linked List
+
+class LinkedList {
+public:
+    int value;
+    LinkedList *next;
+    LinkedList *tail;
+
+    LinkedList(int value) {
+        this->value = value;
+        this->next = nullptr;
+    }
+
+     LinkedList *
+    insert(int value) {
+        LinkedList *current = this;
+        LinkedList *newNode = new LinkedList(this->value);
+        if (current->next != nullptr) {
+            newNode->next = current->next;
+        }
+        current->next = newNode;
+        current->value = value;
+        return this;
+    }
+
+    LinkedList *append(int value) {
+        LinkedList *current = this;
+
+        while (current->next != nullptr) {
+            current = current->next;
+        }
+        current->next = new LinkedList(value);
+        return this;
+    }
+
+     LinkedList *
+     addMany(vector<int> values) {
+        LinkedList *current = this;
+        while (current->next != nullptr) {
+            current = current->next;
+        }
+        for (auto value : values) {
+            current->next = new LinkedList(value);
+            current = current->next;
+        }
+        return this;
+    }
+
+    void addMany1(vector<int> values) {
+        LinkedList *newNode;
+        LinkedList *curr;
+        for (auto &data : values) {
+            newNode = new LinkedList(data);
+            curr = this;
+            while (curr->next != nullptr) {
+                curr = curr->next;
+            }
+            curr->next = newNode;
+        }
+    }
+    vector<int> getNodesInArray() {
+        vector <int> res;
+        LinkedList *curr = this;
+        while (curr != nullptr) {
+            res.push_back(curr->value);
+            curr = curr->next;
+        }
+        return res;
+    }
+};
+
+    LinkedList *list = new LinkedList(0);
+    arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    list->addMany(arr);
+    res = list->getNodesInArray();
+--------------------------------------
+Given Sorted Linked List, we need to remove duplicates.
+
+class LinkedList {
+public:
+  int value;
+  LinkedList *next = nullptr;
+
+  LinkedList(int value) { this->value = value; }
+};
+
+LinkedList *removeDuplicatesFromLinkedList(LinkedList *linkedList) {
+  LinkedList *curr = linkedList;
+  LinkedList *prev = nullptr;
+
+  if (curr == nullptr) {
+    return nullptr;
+  }
+
+  while(curr->next != nullptr) {
+    if (prev  && prev->value == curr->value) {
+      prev->next = curr->next;
+    } else {
+      prev = curr;
+    }
+    curr = curr->next;
+  }
+
+  	if ((curr != nullptr) && (prev != nullptr) && (curr->value == prev->value)) {
+		prev->next = curr->next;
+	}
+
+  return linkedList;
+
+}
+---------------------------------------------------
+Remove Kth node from end.
+
+Given a list and remove the kth node from the end.
+
+0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
+K = 4
+
+0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 7 -> 8 -> 9
+
+Time -> O(N)
+Space -> O(1)
+
+if head is the Kth node from the list, mutate its value, dont remove it.
+
+
+Crux ->
+1. if kth node is head
+2. if no kth node exist.
+
+
+Two Pointer approach.
+1. Get the size of list -> say N
+2. Kth pointer from end -> N-K
+3. if KthPointerFromEnd (N-K)  == 0 then head its head . swap the values from the next node and remove next node,  if <0 then nothing
+4. else -> prev-> next = kthNode->next;
+
+
+void
+removeKthNodeFromEnd(LinkedList *head, int k) {
+    int count = 0;
+    LinkedList *curr = head;
+    bool errLog, dbg;
+    errLog = true;
+    dbg = true;
+
+    if (head == nullptr) {
+        if (errLog) {
+            cout << __LINE__ << " -> " << "head is null" << endl;
+        }
+        return;
+
+    }
+    cout << __LINE__ << endl;
+    /* kth node from last */
+    LinkedList *secondPtr;
+    secondPtr = head;
+    int pos = 1;
+    while ((secondPtr != nullptr) &&  ( pos <= k)) {
+        secondPtr = secondPtr->next;
+        pos = pos + 1;
+    }
+    cout << __LINE__ << endl;
+    /* error case */
+    if ((secondPtr == nullptr) && (pos != k+1)) {
+        if (errLog) {
+            cout << __LINE__ << "-> " << " Kth node does not exist " << endl;
+        }
+        return;
+    }
+
+    if (dbg) {
+        if (secondPtr) {
+            cout << "Kth " << "<" << k << ">" << "node from start: " << secondPtr->value << endl;
+        } else {
+            cout << "Reached End of list" << endl;
+        }
+    }
+
+    cout << __LINE__ << endl;
+    /* head case . kth node is tail */
+    if (secondPtr == nullptr) {
+        curr = head->next;
+        head->value = curr->value;
+        head->next = curr->next;
+
+        if (errLog) {
+            cout << __LINE__ << "-> " << " Kth node from end is  head" << curr->value << endl;
+        }
+
+        return;
+    }
+
+
+    /* advance two pointers */
+    curr = head;
+    while (secondPtr->next != nullptr) {
+        curr = curr->next;
+        secondPtr = secondPtr->next;
+    }
+
+    curr->next = curr->next->next;
+
+    return;
+}
+
+
+
+
+1-> 2 -> 3 -> 4
+
+class LinkedList {
+public:
+  int value;
+  LinkedList *next;
+
+  LinkedList(int value);
+  void addMany(vector<int> values);
+  vector<int> getNodesInArray();
+};
+
+
+
+--------------------------------------------------------
+
+Sum of 2 linked list
+Given 2 list . list represent a number. output a list that is sum of the two number represented by list
+
+head is least significant digit of number
+
+List1 -> 2->4->7->1   -> number -> 1742
+List2 -> 9->4->5      -> number -> 549
+
+sum -> 1742 + 549 -> 2291
+
+Output -> 1->9->2->2
+
+
+use the carry to store the carry over for the sum.
+
+class LinkedList {
+public:
+  int value;
+  LinkedList *next = nullptr;
+
+  LinkedList(int value) { this->value = value; }
+};
+
+LinkedList *
+sumOfLinkedLists(LinkedList *linkedListOne,
+                             LinkedList *linkedListTwo) {
+
+    LinkedList *sumOfList = nullptr;
+    bool errLog, dbgLog;
+    errLog = true;
+    dbgLog = true;
+
+    LinkedList *l1, *l2, *curr;
+    l1 = linkedListOne;
+    l2 = linkedListTwo;
+
+    /* both are null */
+    if ((l1 == nullptr) && (l2 == nullptr)) {
+        if (errLog) {
+            cout << __LINE__ << " ->" << "Both the list are null " << endl;
+        }
+        return nullptr;
+    }
+
+    /* l2 is null, return l1 */
+    if (l1 == nullptr) {
+        sumOfList = new LinkedList(l2->value);
+        curr = sumOfList;
+        l2 = l2->next;
+        while (l2 != nullptr) {
+            curr->next = new LinkedList(l2->value);
+            curr = curr->next;
+            l2 = l2->next;
+        }
+        if (errLog) {
+            cout << __LINE__ << " ->" << "l1 is null, returning copy of l2 " << endl;
+        }
+        return sumOfList;
+    }
+
+    /* l2 is null, return l1 */
+    if (l2 == nullptr) {
+        sumOfList = new LinkedList(l1->value);
+        curr = sumOfList;
+        l1 = l1->next;
+        while (l1 != nullptr) {
+            curr->next = new LinkedList(l1->value);
+            curr = curr->next;
+            l1 = l1->next;
+        }
+        if (errLog) {
+            cout << __LINE__ << " ->" << "l2 is null, returning copy of l1 " << endl;
+        }
+        return sumOfList;
+    }
+
+    if(dbgLog) {
+        cout << __LINE__ << " ->" << "Both list are not null " << endl;
+    }
+
+    /* normal case, both are not null */
+    int sum, carry;
+    sum = l1->value + l2->value;
+    if (sum >= 10) {
+        carry = 1;
+        sum = sum - 10;
+    }
+    sumOfList = new LinkedList(sum);
+    l1 = l1->next;
+    l2 = l2->next;
+    curr = sumOfList;
+
+    while ((l1 != nullptr) && (l2 != nullptr)) {
+        sum = l1->value + l2->value + carry;
+        if (dbgLog) {
+            cout << "Sum : "<< sum << endl;
+        }
+        if (sum >= 10) {
+            carry = 1;
+            sum = sum - 10;
+            if (dbgLog) {
+                cout << "Sum : "<< sum  << " Carry: " << carry << " NodeValue " << sum << endl;
+            }
+        } else {
+            carry = 0;
+        }
+        curr->next = new LinkedList(sum);
+        curr = curr->next;
+        l1 = l1->next;
+        l2 = l2->next;
+    }
+
+    /* l2 is smaller number, we need to add the remaining of l1 to sum   */
+    while (l1 != nullptr) {
+        if (dbgLog) {
+            cout << __LINE__ << " -> " << "l2 is smaller number and now adding the carry to l1 " << endl;
+        }
+        sum = l1->value  + carry;
+        if (sum >= 10) {
+            carry = 1;
+            sum = sum - 10;
+        } else {
+            carry = 0;
+        }
+        curr->next = new LinkedList(sum);
+        curr = curr->next;
+        l1 = l1->next;
+    }
+
+    /* l1 is smaller number, we need to add the remaining of l2 to sum   */
+    while (l2 != nullptr) {
+        if (dbgLog) {
+            cout << __LINE__ << " -> " << "l1 is smaller number and now adding the carry to l2 " << endl;
+        }
+        sum = l2->value  + carry;
+        if (sum >= 10) {
+            carry = 1;
+            sum = sum - 10;
+        } else {
+            carry = 0;
+        }
+        curr->next = new LinkedList(sum);
+        curr = curr->next;
+        l2 = l2->next;
+    }
+
+   /* ----------------- Check the carry --------------------- */
+	 if (carry == 1) {
+        curr->next = new LinkedList(carry);
+    }
+
+    if (errLog) {
+        cout << __LINE__ << "-> " << "Computed the sum of two list " << endl;
+    }
+    return sumOfList;
+}
+
+
+2 2
+9 9
+
+1 2 1
+
+--------------------------------------
+
+Find Loop in linked list  and return the Loop
+
+- use two pointer. one move with speed 1 and another with 2x
+
+next
+next->next
+
+1. 2 pointer, x and 2x speed. if (first == second) -> we have loop
+2. now start with first and find the size of loop  -> size of loop -> L -> mark first -> nodeInLoop
+3. count the number of nodes from head to the first. -> N
+4. first -> head, second -> move to N node away. Now move each one (next -> 1x) when second == nodeInLoop, return first
+
+
+class LinkedList {
+public:
+  int value;
+  LinkedList *next;
+
+  LinkedList(int value);
+};
+
+LinkedList *
+findLoop(LinkedList *head) {
+bool dbgLog = true;
+    if (head == nullptr) {
+        return nullptr;
+    }
+
+    if (head->next == nullptr) {
+        return nullptr;
+    }
+
+
+    LinkedList *first, *second;
+    bool isLoop = false;
+    first = second = head;
+
+    while ((first != nullptr) && (second != nullptr)) {
+        first = first->next;
+        second = second->next;
+        if (second->next) {
+            second = second->next;
+        }
+        if (first == second) {
+            isLoop = true;
+            break;
+        }
+    }
+
+    if (dbgLog) {
+        if (isLoop) {
+            cout << "Loop exist " << endl;
+        } else {
+            cout << "No Loop Exist" << endl;
+        }
+    }
+    LinkedList *nodeInLoop = first;
+    int loopSize = 1;
+    if (isLoop) {
+        while (first->next != nodeInLoop) {
+            loopSize = loopSize + 1;
+            first = first->next;
+        }
+        if (dbgLog) {
+            cout << "Size of loop:" << loopSize << endl;
+        }
+        /* use 2 pointer technique to find nodes at distance k. if the k+1 node is same, the first is the cycle . */
+        first = head;
+        int pos = 1;
+        while (true) {
+            second = first;
+            pos = 1;
+            /* get the kth node */
+            while (pos < loopSize) {
+                second = second->next;
+                pos = pos + 1;
+            }
+            /* if k+1 node is first , we have cycle */
+            if (second->next == first) {
+                break;
+            }
+           first = first->next;
+        }
+        if (dbgLog) {
+            cout << "First ptr : " << first->value << endl;
+            cout << "Second ptr : " << second->value << endl;
+        }
+        return first;
+    } else {
+        return nullptr;
+    }
+}
+
+easy solution =>
+after finding loop =>
+keep looping again. (first, second- = head->next and until first == second, keep advancing pointer by 1. )
+
+
+--------------------------------------------------------------------------
+Reverse a list
+
+-> Given head linked list, reverse the list -> does not create a new list
+
+as I itertate, remove from list and insert to reverse. <insert at head >
+
+-> curr = head;
+   rev  = nullptr;
+   next = nullptr;
+   while (curr != nullptr) {
+       next = curr->next;
+       curr->next = rev;
+       rev = curr;
+       curr = next;
+   }
+   return rev;
+
+LinkedList *reverseLinkedList(LinkedList *head) {
+ /* empty list, nothing to do */
+    if (head == nullptr) {
+        return nullptr;
+    }
+    /* if one node */
+    if (head->next == nullptr) {
+        return head;
+    }
+
+    /* we keep-> curr, rev, next
+     * rev to keep the reverse of list
+     * curr point to current pointer in list
+     * next -> keep the next to curr
+     */
+    LinkedList *curr, *next, *rev;
+    curr = head;
+    /* init these to nullptr */
+    next = rev = nullptr;
+
+    while (curr != nullptr) {
+        next = curr->next;
+        /* curr to the reverse of list */
+        curr->next = rev;
+        /* update the head pointer of reverse */
+        rev = curr;
+        curr = next;
+    }
+
+    return rev;
+
+}
+
+------------------------------------------------------------------------------
+Shift the linked list
+
+Input ->  0-> 1 ->2 ->3 ->4 ->5
+K -> 2
+Output -> 4 -> 5 -> 0-> 1 -> 2 ->3
+
+first and second pointer.
+1. Move the first pointer to
+
+first and second ->
+
+
+1-> 2 -> 3 -> 4 -> 5 - > 6 -> 7 -> 8 ->9
+

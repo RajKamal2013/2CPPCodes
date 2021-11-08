@@ -57,10 +57,24 @@
 #include "Coding/List/SumOfLists.h"
 #include "Coding/List/Loop.h"
 #include "Coding/List/ReverseList.h"
+#include "Coding/List/ShiftListByK.h"
+#include "Coding/Searching/binarySearch.h"
+#include "Coding/Sorting/InsertionSort.h"
+#include "Coding/Stack/BalacedBrackets.h"
+#include "Coding/Stack/MaximumReactange.h"
+#include "Coding/Stack/SunSetView.h"
+#include "Coding/Stack/nextGreaterElement.h"
+#include "Coding/Stack/SortStack.h"
+#include "Coding/Searching/LargestThreeNumber.h"
+#include "Coding/String/LongestPalindrom.h"
+#include "Coding/String/GroupAnagram.h"
+#include "Coding/String/reverseLine.h"
+#include "Coding/String/MinCharacterForLine.h"
+#include "Coding/Heap/MinHeap.h"
 
 
 int main() {
     std::cout << "Testing main " << std::endl;
-    test_reverse();
+    test_MinHeap();
     return 0;
 }

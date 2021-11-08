@@ -34,6 +34,26 @@ void test_stringAPI()
         }
     }
 
+    /*---------------------------- Sorting API ---------------------------- */
+    cout << "---------------------Sorting API -----------------------------" << endl;
+    str = "yes";
+    cout << str << endl;
+    sort(str.begin(), str.end());
+    cout << "String Sorting test " << endl;
+    cout << str << endl;
+    vector<string> words = {"hello", "yes", "hi" };
+    for(string word:words) {
+        cout << word << " ";
+    }
+    cout << endl;
+    for (string &word: words) {
+        sort(word.begin(), word.end());
+    }
+    for(string word:words) {
+        cout << word << " ";
+    }
+    cout << endl;
+
 
     cout << endl;
 

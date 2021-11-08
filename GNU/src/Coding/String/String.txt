@@ -1,0 +1,498 @@
+Coding Practice -> String
+
+
+basic string api
+0. basic
+
+length() -> size of string not including "\n"
+find() ->
+compare()->
+getline() ->  This function is used to store a stream of characters as entered by the user in the object memory.
+getline(cin, str);
+push_back() :- This function is used to input a character at the end of the string
+pop_back() :- Introduced from C++11(for strings), this function is used to delete the last character from the string.
+resize() :- This function changes the size of string, the size can be increased or decreased
+shrink_to_fit() :- This function decreases the capacity of the string and makes it equal to the minimum capacity of the string
+
+begin() :- This function returns an iterator to beginning of the string.
+end() :- This function returns an iterator to end of the string.
+rbegin() :- This function returns a reverse iterator pointing at the end of string.
+rend() :- This function returns a reverse iterator pointing at beginning of string.
+for (it=str.begin(); it!=str.end(); it++)
+    cout << *it;
+    cout << endl;
+
+copy(“char array”, len, pos) :- This function copies the substring in target character array mentioned in its arguments. It takes 3 arguments, target char array, length to be copied and starting position in string to start copying.
+swap() :- This function swaps one string with other.
+
+string str1 = "geeksforgeeks is for geeks";
+str1.copy(ch,13,0);
+ch ==> "geeksforgeeks"
+str1.swap(str2);
+
+int find(string pattern, int position);
+for(i = input.find("cat", 0); i != string::npos; i = input.find("cat", i))
+{
+    cat_appearances++;
+    i++;  // Move past the last discovered instance to avoid finding same
+          // string
+}
+
+string substr(int position, int length);
+string first_ten_of_alphabet = my_string.substr(0, 10);
+
+
+string my_string3 = my_string1 + my_string2;
+
+string s1("1234");
+string s2("abcde");
+s1.insert(4, s2);
+s1.erase(4, 5);
+s2.replace(1, 3, s1) > middle 3 character with s1
+
+==, !=, +, <, >
+
+at, substr() find()
+
+compare(), swap()
+
+
+memcpy
+memcmp
+
+stringstream
+to_string
+
+
+
+1. Tokenizer
+
+ C++ Style Tokenizer
+ bits/stdc++.h
+ string line = "GeeksForGeeks is a must try";
+ vector <string> tokens;
+ stringstream check1(line);
+ string intermediate;
+ char delim = '-';
+
+ while (getline(check1, intermediate, delim)) {
+     tokens.push_back(intermediate);
+ }
+
+ C Style Tokenizer
+ string.h
+ stdio.h
+ char * strtok(char str[], const char *delims);
+
+ char str[] = "Geeks-for-Geeks";
+ char *token = strtok(str, "-");
+ while(token != NULL {
+     printf ("Token:%s", token);
+     token = strtok(NULL, "-");
+ }
+
+
+2. Regex
+
+regex reg => patern using "regex() " API
+regex_match()
+regex_search(str, regex)
+cmatch /smatch ->
+regex_search(str, cmatch, regex)
+regex_replace()
+regex_replace_back()
+
+1. simple Matching -->
+
+#include <regex>
+#include <string>
+
+string str = "here is my man";
+regex reg("man");
+
+if (regex_search(str, reg)) {
+    cout << "Matched ";
+} else {
+    cout << "Not Matched ";
+}
+
+2. pattern
+^ $ \ . * + ? ( ) [ ] { } |
+
+string str1 = ""The cat is in the room.";
+string str2 = "The bat is in the room."
+string str3 = "The rat is in the room."
+regex reg("[cbr]at");  => c or b or r followed by at -> cat, bat, rat
+
+if (regex_search(str1, reg))
+    cout << "matched" << endl;
+if (regex_search(str2, reg))
+    cout << "matched" << endl;
+if (regex_search(str3, reg))
+    cout << "matched" << endl;
+
+
+--?range
+if (regex_search("ID6id", regex("[0-9]")))   --> containing one digit
+  cout << "matched" << endl;
+
+--> negation
+if (regex_search("0123456789101112", regex("[^0-9]")))
+    cout << "matched" << endl;
+else
+    cout << "not matched" << endl;
+
+--> matching whitespace
+if (regex_search("Of line one.\r\nOf line two.", regex("\n")))
+  cout << "matched" << endl;
+
+--> if (regex_search("one two", regex("[ \t\r\n\f]")))
+  cout << "matched" << endl;
+
+--> matching period -> The period (.) in the pattern matches any character including itself, except \n, in the target. A match is produced in the following code
+if (regex_search("1234abcd", regex(".")))
+  cout << "matched" << endl;
+
+--> Matching Repetitions
+x*: means match 'x' 0 or more times, i.e., any number of times
+x+: means match 'x' 1 or more times, i.e., at least once
+x? : means match 'x' 0 or 1 time
+x{n,}: means match 'x' at least n or more times. Note the comma.
+x{n} : match 'x' exactly n times
+x{n,m}: match 'x' at least n times, but not more than m times.
+
+
+---> matching alteration
+char str[] = "The farm has pigs of different sizes.";
+if (regex_search(str, regex("goat|rabbit|pig")))
+  cout << "matched" << endl;
+else
+  cout << "not matched" << endl;
+
+--> matching beginning
+if (regex_search("abc and def", regex("^abc")))
+  cout << "matched" << endl;
+
+--> matching end
+if (regex_search("uvw and xyz", regex("xyz$")))
+  cout << "matched" << endl;
+
+--> grouping
+char str[] = "The library has a bookshelf that is admired.";
+if (regex_search(str, regex("book(shelf|keeper)")))
+  cout << "matched" << endl;
+
+--> multiline
+char str[] = "line 1\nline 2\nline 3";
+if (regex_search(str, regex("^.*$")))
+  cout << "matched" << endl;
+else
+  cout << "not matched" << endl;
+char str[] = "line 1\nline 2\nline 3";
+if (regex_search(str, regex("^.*$", regex::multiline)))
+  cout << "matched" << endl;
+else
+  cout << "not matched" << endl;
+
+---> getting matches
+char str[] = "The woman you were looking for!";
+cmatch m;
+if (regex_search(str, m, regex("w.m.n")))
+  cout << m[0] << endl;
+
+if (regex_search("Best bookseller today!", m, regex("book((sel)(ler))")))
+  cout << m[0] << endl;
+  cout << m[1] << endl;
+  cout << m[2] << endl;
+  cout << m[3] << endl;
+
+cmatch m;
+if (regex_search("Best bookseller today!", m, regex("book((sel)(ler))")))
+  cout << m[0] << "->" << m.position(0) << endl;
+  cout << m[1] << "->" << m.position(1) << endl;
+  cout << m[2] << "->" << m.position(2) << endl;
+  cout << m[3] << "->" << m.position(3) << endl;
+
+
+---> search and replace
+ string str = "Here, comes my man. There goes your man.";
+ string newStr = regex_replace(str, regex("man"), "woman");
+ cout << newStr << endl;
+
+---> Overall
+   auto const regex = std::regex("(my|your) regex");
+   auto const myText = std::string("A piece of text that contains my regex.");
+   bool const myTextContainsRegex = std::regex_search(myText, regex);
+   auto const yourText = std::string("A piece of text that contains your regex.");
+   bool const yourTextContainsRegex = std::regex_search(yourText, regex);
+   auto const theirText = std::string("A piece of text that contains their regex.");
+   bool const theirTextContainsRegex = std::regex_search(theirText, regex);
+
+---> position in regex
+auto const regex = std::regex("(my|your) regex");
+auto const myText = std::string("A piece of text that contains my regex.");
+auto matchResults = std::smatch{};
+bool const myTextContainsRegex = std::regex_search(myText, matchResults, regex);
+auto const prefix = matchResults.prefix();
+matchResults.prefix().lenght()
+matchResults.postion()
+
+
+--> ignore case
+auto const regex = std::regex("(MY|your) regex)", std::regex::icase);
+
+https://linuxhint.com/regular-expression-basics-cpp/
+https://www.fluentcpp.com/2020/02/28/c-regex-101-simple-code-for-simple-cases-with-regexes/
+
+
+--> match all
+    //Target sequence
+    string s = "I am looking for GeeksForGeeks "
+               "articles";
+
+    // An object of regex for pattern to be searched
+    regex r("Geek[a-zA-Z]+");
+
+    // flag type for determining the matching behavior
+    // here it is for matches on 'string' objects
+    smatch m;
+
+    // regex_search() for searching the regex pattern
+    // 'r' in the string 's'. 'm' is flag for determining
+    // matching behavior.
+    regex_search(s, m, r);
+
+    // for each loop
+    for (auto x : m)
+        cout << x << " ";
+
+
+--> match
+    string a = "GeeksForGeeks";
+
+    // Here b is an object of regex (regular expression)
+    regex b("(Geek)(.*)"); // Geek followed by any character
+
+    // regex_match function matches string a against regex b
+    if ( regex_match(a, b) )
+        cout << "String 'a' matches regular expression 'b' \n";
+
+    // regex_match function for matching a range in string
+    // against regex b
+    if ( regex_match(a.begin(), a.end(), b) )
+        cout << "String 'a' matches with regular expression "
+                "'b' in the range from 0 to string end\n";
+
+
+
+Important algo
+1, Rabin karp
+2. Boyer Moore
+3. KMP
+4. Finite automata
+5. compression
+6. encryption
+7. sorting -> algo
+8. tries
+9. suffix tree
+
+
+
+------------------------------------- coding algorithms ---------------------------------------
+1. Palindrome String
+
+Given a string , tell its palindrome or not.
+Time  -> O(n)
+Space -> O(1)
+
+Algorithm
+    -> left and right idx
+
+bool isPalindrome(string str) {
+    bool ret = true;
+    int left, right;
+
+    if ((str.empty()) || (str.length == 0)) {
+        return ret;
+    }
+
+    left = 0;
+    right = str.length;
+    while (left < right) {
+        if (str[right] != str[left]) {
+            ret = false;
+            break;
+        }
+        left++;
+        right--;
+    }
+    return ret;
+}
+----------------------------------------------------------------------
+
+2. Ceaser Cypher encryption
+Given non-empty string and a key. write a function to return the string after shifting each alphabet by key
+
+Input =>
+string -> "xyz"
+key -> 2
+
+Output =>
+zab
+Time -> O(n)
+Space -> O(n)
+
+
+string
+caesarCypherEncryptor(string str, int key) {
+    string s;
+    int diff, add;
+    key = key % 26;
+
+    if (str.empty()) {
+        return NULL;
+    }
+
+
+    for (auto c:str) {
+        diff = z - 'c';
+        if (diff > key) {
+            ch = c + key;
+        } else {
+            add = key - diff;
+            ch = 'a' + add;
+        }
+        s.push_back(ch);
+    }
+    return s;
+}
+
+
+-------------------------------------------------------------------------------------
+
+3. Run Length Coding
+
+AAAAAAAAAAAAABBCCCCDD  -> 9A4A2B4C2D
+
+given string that contains any characters including number and special character -> compress them using run length encoding
+
+
+    char prev, s, ch;
+    int count;
+    vector<char> res;
+    bool test = false;
+
+    prev = str[0];
+    count = 1;
+
+    for (int i = 1; i < str.length(); i++) {
+        if (test) {
+            cout << str[i] << " ";
+        }
+        s = str[i];
+        if (s == prev) {
+            count++;
+            if (count == 9) {
+                ch  = '9';
+                res.push_back(ch);
+                res.push_back(prev);
+                count = 0;
+            }
+        } else {
+            if (count != 0) {  ---------------------------------------> this part
+                ch = '0' + count;
+                res.push_back(ch);
+                res.push_back(prev);
+            }
+            prev = s;
+            count = 1;
+        }
+    }
+
+    if (count == 9) {   ------------------------------------------------> this part
+        ch  = '9';
+    } else {
+        ch = '0' + count;
+    }
+    res.push_back(ch);
+    res.push_back(prev);
+
+
+    if (test) {
+        cout << endl;
+    }
+    return string (res.begin(), res.end());
+
+--------------------------------------------------------------------------------------------------------
+1. Given Characters and Documents. If count of all unique characters in Characters greater than or equal to  Documents, then return true ow false
+
+
+use unorder map
+
+bool generateDocument(string characters, string document) {
+    unordered_map<char, int> charMap;
+
+    for (auto &ch:characters) {
+        if (charMap.find(ch) == charMap.end()) {
+            charMap[ch] = 0;
+        }
+        charMap[ch]++;
+    }
+
+    for (auto &ch:document) {
+        if ((charMap.find(ch) == charMap.end()) || (charMap[ch] == 0)) {
+            return false;
+        }
+        charMap[ch]--;
+    }
+
+    return true;
+}
+
+
+---------------------------------------------------------------------------------------------------------
+2. First non - repeating character
+
+Given a string of lowercase letters , find the index of first non-repeating character ?  If all are repeating then just return -1 .
+
+input -> "abcdcaf"
+ouput => 1 (for b)
+
+Time -> O(N)
+Space -> O(1)
+
+hash of lower letter alphabet => 26   -> hash of 26 always so constant space
+each will have count ->
+
+count ->
+unorder_map <char, count>
+
+iterate the string and for each find the occurance and then first one with count 1 is the answer.
+
+int firstNonRepeatingCharacter(string string) {
+unorder_map<char, int> hash;
+for (auto &ch:str) {
+    if (hash.find(ch) == hash.end()) {
+        hash[ch] = 0;
+    }
+    hash[ch]++;
+}
+
+for (int i = 0; i < str.length(); i++) {
+    if (hash.find(str[i]) == 1) {
+        return i;
+    }
+}
+return -1
+}
+
+for (auto &ch:str) {
+    if (hash[ch] == 1) {
+        break;
+    }
+}
+
+
+
+
+

@@ -1,0 +1,188 @@
+Recurssion
+
+
+1. Knight Tour
+
+Given a N*N board with the Knight placed on the first block of an empty board. Moving according to the rules of chess knight must visit each square exactly once.
+Print the order of each cell in which they are visited.
+
+1. plot all the places the knight can move from a pos -
+2. starting from each point, move on the plots and proceed.
+
+
+
+bool isSafe(int x, int y, int M, int N, int  **tour) {
+    return ((x >= 0) && (x < N) && (y >= 0) && (y < N) && (tour[x][y] == -1));
+}
+
+void printSolution(int **tour, int row, int col) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            cout << " " << setw(2) << tour[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+bool findPath(int x, int y, int count, int M, int N, int **tour, int moveX[8], int moveY[8]) {
+    if (count == N * N) {
+        return true;
+    }
+
+    int X, Y;
+    for (int k = 0; k < 8; k++) {
+        X = x + moveX[k];
+        Y = y + moveY[k];
+        if (isSafe(X, Y, M, N, tour)) {
+            tour[X][Y] = count;
+            if (findPath(X, Y, count + 1, M, N, tour, moveX, moveY)) {
+                return true;
+            } else {
+               // backtracking
+                tour[X][Y] = -1;
+            }
+        }
+    }
+    return 0;
+}
+
+void KnightTour(int K, int xPos, int yPos) {
+    int **tour;
+    tour = new int*[K];
+    for (int i =0; i < K; i++) {
+        tour[i] = new int[K];
+    }
+    // initialize
+    for (int x = 0; x < K; x++) {
+        for (int y = 0; y < K; y++) {
+            tour[x][y] = -1;
+        }
+    }
+
+    int moveX[8] = {2, 2, -2, -2, 1, 1, -1, -1};
+    int moveY[8] = {1, -1, 1, -1, 2, -2, 2, -2};
+
+    int count  = 1;
+
+    tour[xPos][yPos] = count;
+
+    if (findPath(xPos, yPos, count, K, K, tour, moveX, moveY)) {
+        printSolution(tour, K, K);
+    } else {
+        cout << "No path exist" << endl;
+    }
+}
+
+
+2. Merge K sorted Array
+
+
+
+
+3. Rat in a maze
+
+
+/*
+ * Maze is N*N Binary matrix.
+ * Maze[x][y] == 0 -> dead cell
+ * Maze[x][y] == 1 -> Valid cell
+ * Source -> [0][0]
+ * Destination -> [N-1][N-1]
+ * Rat can move forward or down -> (x+1, y) or (x, y+1)
+ * Find path, so that rat can reach from source to destination
+ *
+ *
+ */
+
+/* Not working */
+
+
+bool
+isSafeMaze(int x, int y, int M, int N, int **maze) {
+    bool ret = (x >= 0) && (x < M) && (y >= 0) && (y < N) && (maze[x][y] == 1);
+    return ret;
+}
+
+void
+PrintSolution(int **Solution, int M, int N) {
+    for (int row = 0; row < M; row++) {
+        for (int col = 0; col < N; col++) {
+            cout << setw(2) << Solution[row][col];
+        }
+        cout << endl;
+    }
+}
+
+/*
+ * Idea is visit every possible moves and check if we reach the destination
+ */
+bool
+solveUtil(int X, int Y, int M, int N, int **maze, int **Solution) {
+    bool FoundSolution  = false;
+    /* Did we just reach the destination */
+    FoundSolution = ((X == M -1) && (Y == N - 1) && (maze[X][Y] == 1) && (Solution[X][Y] == 1));
+    if (FoundSolution) {
+        return  true;
+    }
+
+    /* Is it safe to visit  - valid cell */
+    if (isSafeMaze(X, Y, M, N, maze)) {
+        /* Already visited , it will lead to cycle ow */
+        if (Solution[X][Y] == 1) {
+            return false;
+        }
+        /* Marked visited */
+        Solution[X][Y] = 1;
+
+        /* Move forward */
+        if (solveUtil(X, Y + 1, M, N, maze, Solution)) {
+            return true;
+        }
+
+        /* Move Down */
+        if (solveUtil(X + 1, Y, M, N, maze, Solution)) {
+            return true;
+        }
+
+        /* We could not find solution so unset the visited */
+        Solution[X][Y] = 0;
+        return false;
+    }
+
+    /* We hit the dead cell */
+    return false;
+}
+
+void
+solve(int X, int Y, int M, int N, int **maze) {
+    int **Solution;
+    Solution  = new int*[M];
+    for (int i =0; i < M; i++) {
+        Solution[i] = new int[N];
+    }
+    // initialize
+    for (int x = 0; x < M; x++) {
+        for (int y = 0; y < N; y++) {
+            Solution[x][y] = 0;
+        }
+    }
+
+    bool FoundPath = solveUtil(X, Y, M, N, maze, Solution);
+    if (FoundPath) {
+        cout << "We Found Solution " << endl;
+        PrintSolution(Solution, M, N);
+    } else {
+        cout << "We could not Found Solution " << endl;
+     }
+    return;
+ }
+
+ void
+ RatInAMaze(int M, int N, int** Maze) {
+     solve(0, 0, M, N, Maze);
+
+ }
+
+
+
+
