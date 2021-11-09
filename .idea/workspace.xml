@@ -29,37 +29,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="500af277-0c3d-427f-a797-033118aa0add" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/AList.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/AQueue.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/AStack.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/DList.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/LQueue.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/LStack.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/Link.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/List.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/Queue.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/SList.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/Stack.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/DS/TODO.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Codes/Exceptions/excep.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/MoveElementsToEnd.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/NonConstructible.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/SmallestDifference.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/SortedSquare.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/ThreeSum.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/twoSum.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/validateSubsequence.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/2CPPCodes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/2CPPCodes.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="500af277-0c3d-427f-a797-033118aa0add" name="Default Changelist" comment="String + Heap">
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/Heap/MergeKSortedArray.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/Heap/kSortedArray.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/Heap/mergeSortedArray.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GNU/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GNU/src/Codes/IntegerFileGenerator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/src/Codes/Util/IntegerFileGenerator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GNU/src/Codes/IntegerFileGenerator.h" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/src/Codes/Util/IntegerFileGenerator.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GNU/src/Codes/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GNU/src/Codes/qsort.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/src/Codes/Sorting/qsort.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GNU/src/Codes/qsort.h" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/src/Codes/Sorting/qsort.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GNU/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +93,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kamr\CLionProjects\2CPPCodes\GNU\src\Coding\Array" />
       <recent name="C:\Users\kamr\CLionProjects\2CPPCodes\GNU\src" />
       <recent name="C:\Users\kamr\CLionProjects\2CPPCodes\GNU\src\Codes\Sorting" />
       <recent name="C:\Users\kamr\CLionProjects\2CPPCodes\GNU\src\Codes\Util" />
@@ -124,6 +101,11 @@
   </component>
   <component name="RunManager">
     <configuration name="GNU" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GNU" TARGET_NAME="GNU" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="GNU" RUN_TARGET_NAME="GNU">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -171,6 +153,24 @@
       <workItem from="1633319990684" duration="8663000" />
       <workItem from="1633413570654" duration="594000" />
       <workItem from="1633498922934" duration="2730000" />
+      <workItem from="1633853021390" duration="363000" />
+      <workItem from="1633915059367" duration="5203000" />
+      <workItem from="1634020129351" duration="10920000" />
+      <workItem from="1634113424129" duration="9348000" />
+      <workItem from="1634537100286" duration="5552000" />
+      <workItem from="1634781871799" duration="1974000" />
+      <workItem from="1634898016796" duration="6111000" />
+      <workItem from="1635165352548" duration="2431000" />
+      <workItem from="1635233374400" duration="9367000" />
+      <workItem from="1635312713524" duration="29890000" />
+      <workItem from="1635475047886" duration="19348000" />
+      <workItem from="1635570762340" duration="24891000" />
+      <workItem from="1635654724043" duration="15245000" />
+      <workItem from="1635729599680" duration="23674000" />
+      <workItem from="1635823662355" duration="27097000" />
+      <workItem from="1635909050133" duration="20638000" />
+      <workItem from="1636033125354" duration="47949000" />
+      <workItem from="1636432552573" duration="10132000" />
     </task>
     <task id="LOCAL-00001" summary="Qsort in c++ for GNU">
       <created>1621679518882</created>
@@ -186,7 +186,49 @@
       <option name="project" value="LOCAL" />
       <updated>1621679790532</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Coding started in C++">
+      <created>1633853238344</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633853238344</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Coding Continue">
+      <created>1635475308813</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1635475308813</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Binary Tree Questions &lt;algoexpert&gt;">
+      <created>1635752765711</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1635752765711</updated>
+    </task>
+    <task id="LOCAL-00006" summary="List &lt;AlgoExpert&gt;">
+      <created>1635911163258</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1635911163258</updated>
+    </task>
+    <task id="LOCAL-00007" summary="String + heap + Sorting + Stack + Recurrsion &lt;AlgoExpert&gt;">
+      <created>1636350012843</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1636350012843</updated>
+    </task>
+    <task id="LOCAL-00008" summary="String + Heap">
+      <created>1636432767360</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1636432767360</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +249,23 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Qsort in c++ for GNU" />
-    <option name="LAST_COMMIT_MESSAGE" value="Qsort in c++ for GNU" />
+    <MESSAGE value="Coding started in C++" />
+    <MESSAGE value="Coding Continue" />
+    <MESSAGE value="Binary Tree Questions &lt;algoexpert&gt;" />
+    <MESSAGE value="List &lt;AlgoExpert&gt;" />
+    <MESSAGE value="String + heap + Sorting + Stack + Recurrsion &lt;AlgoExpert&gt;" />
+    <MESSAGE value="String + Heap" />
+    <option name="LAST_COMMIT_MESSAGE" value="String + Heap" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/GNU/src/Coding/Tree/BST.h</url>
+          <line>136</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

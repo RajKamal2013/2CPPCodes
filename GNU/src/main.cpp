@@ -6,7 +6,10 @@
 #include <cstring>
 #include <vector>
 #include <chrono>
+#include "Coding/Heap/kSortedArray.h"
+using namespace  std;
 
+/*
 #include "Codes/helloworld.h"
 #include "Codes/Util/IntegerFileGenerator.h"
 #include "Codes/Sorting/qsort.h"
@@ -72,10 +75,11 @@
 #include "Coding/String/MinCharacterForLine.h"
 #include "Coding/Heap/MinHeap.h"
 #include "Coding/String/TrieST.h"
+*/
 
 
 int main() {
     std::cout << "Testing main " << std::endl;
-    test_trie();
+    test_kSortedArray();
     return 0;
 }
