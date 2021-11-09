@@ -71,10 +71,11 @@
 #include "Coding/String/reverseLine.h"
 #include "Coding/String/MinCharacterForLine.h"
 #include "Coding/Heap/MinHeap.h"
+#include "Coding/String/TrieST.h"
 
 
 int main() {
     std::cout << "Testing main " << std::endl;
-    test_MinHeap();
+    test_trie();
     return 0;
 }
