@@ -29,10 +29,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="500af277-0c3d-427f-a797-033118aa0add" name="Default Changelist" comment="String + Heap">
-      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/Heap/MergeKSortedArray.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/Heap/kSortedArray.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/Heap/mergeSortedArray.h" afterDir="false" />
+    <list default="true" id="500af277-0c3d-427f-a797-033118aa0add" name="Default Changelist" comment="DP problems">
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/String/TinyUrl.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GNU/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GNU/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/src/main.cpp" afterDir="false" />
@@ -100,12 +98,12 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="GNU" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GNU" TARGET_NAME="GNU" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="GNU" RUN_TARGET_NAME="GNU">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="GNU" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="GNU" TARGET_NAME="GNU" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="GNU" RUN_TARGET_NAME="GNU">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -170,7 +168,10 @@
       <workItem from="1635823662355" duration="27097000" />
       <workItem from="1635909050133" duration="20638000" />
       <workItem from="1636033125354" duration="47949000" />
-      <workItem from="1636432552573" duration="10132000" />
+      <workItem from="1636432552573" duration="10283000" />
+      <workItem from="1636511518055" duration="9056000" />
+      <workItem from="1636605857280" duration="715000" />
+      <workItem from="1636615035953" duration="2298000" />
     </task>
     <task id="LOCAL-00001" summary="Qsort in c++ for GNU">
       <created>1621679518882</created>
@@ -228,7 +229,21 @@
       <option name="project" value="LOCAL" />
       <updated>1636432767360</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Heaps and external sorting using heap">
+      <created>1636478208367</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1636478208367</updated>
+    </task>
+    <task id="LOCAL-00010" summary="DP problems">
+      <created>1636605961701</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1636605961701</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +270,9 @@
     <MESSAGE value="List &lt;AlgoExpert&gt;" />
     <MESSAGE value="String + heap + Sorting + Stack + Recurrsion &lt;AlgoExpert&gt;" />
     <MESSAGE value="String + Heap" />
-    <option name="LAST_COMMIT_MESSAGE" value="String + Heap" />
+    <MESSAGE value="Heaps and external sorting using heap" />
+    <MESSAGE value="DP problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="DP problems" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

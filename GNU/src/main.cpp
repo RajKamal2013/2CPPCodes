@@ -7,7 +7,7 @@
 #include <vector>
 #include <chrono>
 #include <queue>
-
+#include "Coding/String/TinyUrl.h"
 
 
 using namespace  std;
@@ -15,6 +15,6 @@ using namespace  std;
 
 int main() {
     std::cout << "Testing main " << std::endl;
-
+    test_tinyURL();
     return 0;
 }
