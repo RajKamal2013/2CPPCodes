@@ -29,8 +29,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="500af277-0c3d-427f-a797-033118aa0add" name="Default Changelist" comment="DP problems">
-      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/String/TinyUrl.h" afterDir="false" />
+    <list default="true" id="500af277-0c3d-427f-a797-033118aa0add" name="Default Changelist" comment="TinyUrl">
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/Array/mergeOverlappingIntervals.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GNU/src/Coding/Sorting/Qsort.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GNU/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GNU/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GNU/src/main.cpp" afterDir="false" />
@@ -171,7 +172,8 @@
       <workItem from="1636432552573" duration="10283000" />
       <workItem from="1636511518055" duration="9056000" />
       <workItem from="1636605857280" duration="715000" />
-      <workItem from="1636615035953" duration="2298000" />
+      <workItem from="1636615035953" duration="3053000" />
+      <workItem from="1636703654091" duration="3494000" />
     </task>
     <task id="LOCAL-00001" summary="Qsort in c++ for GNU">
       <created>1621679518882</created>
@@ -243,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636605961701</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="TinyUrl">
+      <created>1636622470748</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1636622470748</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +281,8 @@
     <MESSAGE value="String + Heap" />
     <MESSAGE value="Heaps and external sorting using heap" />
     <MESSAGE value="DP problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="DP problems" />
+    <MESSAGE value="TinyUrl" />
+    <option name="LAST_COMMIT_MESSAGE" value="TinyUrl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

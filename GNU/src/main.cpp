@@ -7,14 +7,13 @@
 #include <vector>
 #include <chrono>
 #include <queue>
-#include "Coding/String/TinyUrl.h"
-
+#include "Coding/Sorting/HSort.h"
 
 using namespace  std;
 
 
 int main() {
     std::cout << "Testing main " << std::endl;
-    test_tinyURL();
+    test_HSort();
     return 0;
 }
