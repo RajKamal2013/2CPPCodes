@@ -34,7 +34,7 @@ insertionSort(vector<int> array) {
 }
 void
 test_insertionSort() {
-    vector<int> arr = {5, 7, 9, 0, 1, 4, 5};
+    vector<int> arr = {8762, 654, 3008, 345, 87, 65, 234, 12, 2};
     vector<int> sortedArr;
     cout << "Input " << endl;
     for (auto &data:arr) {
