@@ -61,20 +61,23 @@ string decrypt( const string& word )
 
 
     for (auto ch:word) {
-        // convert first by adding previous value
+
         if (currIdx == 0) {
             currValue = ch - 1;
             output = output + char(currValue);
             prevValue = ch;
             currIdx = currIdx + 1;
         } else {
-
+            /*
+             * we have to find letter such that
+             * (letter + prevSum) - k*26 = ch
+             */
             for (auto letter:alphabets) {
                 tempValue = prevValue + letter;
                 for (int idx = 0; idx <= 10; idx++) {
                     currValue = tempValue - (idx * 26);
                     if (currValue == ch) {
-
+                        // we found the value.
                         prevValue = currValue;
                         output  = output + letter;
                         found = true;
