@@ -1,0 +1,136 @@
+Visual Studio Code
+
+
+Command Pallate -> ctrl + shift + P or F1
+
+new => ctrl + Shift + N
+close = >ctrl + shift + W
+
+search ->
+    ctrl + F
+    ctrl + H => replace
+    f3 -> next occurance of search
+    alt + Enter -> select all occurance
+    ctrl + D -> next selection
+    ctrl + K, ctrl + D  -> last selection
+
+File Management
+    ctrl + N
+    ctrk + W
+    ctrl + S
+    ctrk + O
+    ctrl + Shift + S -> save as
+    ctrl + F4 -> close
+    ctrl + Tab -> open next
+    ctrl + Shift + Tab -> open previous
+    ctrl +K , P -> copy path of file
+    ctrl + K, R ->
+
+Select
+    ctrl + Shift + Left/Right -> select word by word
+    Alt up/down => move up and down
+    ctrl + Alt + Up/Down -> multiple cursor
+    current line -> ctrl + I
+
+Multi cursor selection
+    alt + click -> multi cursor selection
+    alr + ctrl + Up.down -> inser cursor up and down
+    ctrl  + U -> undo last cursor
+    Shift+Alt+I -> Insert cursor at end of each line selected
+    Ctrl+I  -> Select current line
+    Ctrl+F2  -> Select all occurrences of current word
+    Ctrl+Shift+L  -> Select all occurrences of current selection
+
+Delete Line
+    ctrl + shift + K
+
+
+comment lines
+    ctrl + K . ctrl + C
+
+    Ctrl + K, Ctrl + U => undo comment
+
+Side by side editing
+    ctrl + \
+
+switch between views
+    ctrl + 1/2/3
+
+Editing
+    copy line up and down  -> shift + alt + up/down
+    Trim whitespace -> ctrl + k, ctrl + x
+    ctrl + x -> cut line
+    ctrl + c -> copy
+    alt + up/down => move lin up or down
+    shift+ alt + up/down -> copy up and down
+    ctrl + shift + k => delete line
+    ctrl + enter -> insert below line
+    ctrl + shift + enter -> insert above line
+    Ctrl+]/[  -> Indent/outdent line
+
+
+code Formating
+    ctrl + K, ctrl + f
+
+Navigation
+    -> to line number -> ctrl + g
+    ctrl + shift + \= > jump to matching bracket
+    HOME -> begininning of line
+    END -> end of line
+    ctrl + HOME -> beginnnin of file
+    ctrl + END  -> end of file
+    ctrl + UP/DOWN -> scroll up/down
+    ctrl + T -> show all symbol
+    ctrl + G => go to line
+    ctrl + P => go to file
+    ctrl + shift + O -> go to symbol
+    F8 -> got to next error
+
+
+history
+    ctrl + shift + Tab -> navigate history
+
+
+code Folding
+    ctrl + shift + ] /[
+
+markup
+    ctrl + k v
+
+CLI
+    code-r -> open current directory
+    code-n -> new window
+    code-locale=es -> new language
+    code --diff <fil1> <file2> -> diff editior
+    code --disable-extension -
+
+
+Terminal
+    ctrl + ` -> terminal
+    ctrl + shift + ` -> new terminal
+    ctrl + shift + C -> copy selection
+    ctrl + shift + V -> paste
+
+Debug
+    F9 -> Toggle breakpoint
+    F5 -> Start/Continue
+    Shift+F5  -> Stop
+    F11/Shift+F11   -> Step into/out
+    F10   -> Step over
+    Ctrl+KthenCtrl+I   -> Show hover
+
+
+
+    Links
+    https://www.crio.do/blog/vs-code-shortcuts/
+
+    https://shortcutworld.com/VSCode/win/Visual-Studio-Code_Shortcuts
+
+
+
+----------------------------------------------------------- VIM --------------------------------------------------------------
+1. columns in Vim
+select columns in vim and delete
+
+Press ctrl+v for block selection. use h, j, k, l keys to navigate and press key d to delete the selected block.
+

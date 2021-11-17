@@ -284,6 +284,75 @@ https://www.fluentcpp.com/2020/02/28/c-regex-101-simple-code-for-simple-cases-wi
                 "'b' in the range from 0 to string end\n";
 
 
+ 4. Finding
+   std::size_t found = str.find(str2);
+  if (found!=std::string::npos)
+    std::cout << "first 'needle' found at: " << found << '\n';
+
+
+
+5. String to cstyle character
+
+To get the C string equivalent of the C++ string object use c_str function.
+To locate the first occurence of a char in a string object use find_first_of function.
+
+string s = "abc";
+
+// call to strlen expects char *
+cout<<strlen(s.c_str());  // prints 3
+
+// on failure find_first_of return string::npos
+if(s.find_first_of('a') != string::npos)
+    cout<<s<<" has an a"<<endl;
+else
+    cout<<s<<" has no a"<<endl;
+
+
+6. toString
+
+string to_string (int val);
+string to_string (long val);
+string to_string (long long val);
+string to_string (unsigned val);
+string to_string (unsigned long val);
+string to_string (unsigned long long val);
+string to_string (float val);
+string to_string (double val);
+string to_string (long double val);
+
+
+7. Convert char* to string
+std::string str(buffer, buffer + length)
+std::string str(buffer, std::find(buffer, buffer + length, '\0'));
+std::string str;
+char* const s = "test";
+
+str.assign(s);
+
+
+
+8. String to integer
+
+int stringTointeger(string str)
+{
+    int temp = 0;
+    for (int i = 0; i < str.length(); i++) {
+
+        // Since ASCII value of character from '0'
+        // to '9' are contiguous. So if we subtract
+        // '0' from ASCII value of a digit, we get
+        // the integer value of the digit.
+        temp = temp * 10 + (str[i] - '0');
+    }
+    return temp;
+}
+
+    string a = "10";
+    int b = atoi(a);
+
+
+
+
 
 Important algo
 1, Rabin karp
@@ -493,6 +562,696 @@ for (auto &ch:str) {
 }
 
 
+-----------------------------------------------------------------------------------------
+Longest Palindrome Subsequence :-
+Given array, find the longest palindrome subsequence.
+    Input   => abaxyzzyxf
+    Output  => xyzxyx
+
+--> Palindrome ->
+    Time => O(n^2)
+    Space => O(n)
+
+
+O(n^2) ->
+
+O(n^3) and no extra space. !!!
+each length -> n
+for each length (1 to string.length -1 ) {
+    for ( i = 0; i < string.length - length, i++) {
+        checkpalindrome(string, i, i + length)  -> keep highest value .
+    }
+}
+
+
+bool isPalindromeHelper(string str, int start, int len) {
+    int  left, right;
+    bool ret;
+    bool  dbgLog = false ;
+
+    left = start;
+    ret = true;
+    right = left + len - 1;
+
+    while (left < right) {
+        if (str[left] != str[right]) {
+            ret = false;
+            break;
+        }
+        left = left + 1;
+        right = right -1;
+    }
+
+
+    if (dbgLog) {
+        right = start + len - 1;
+        if (ret) {
+            cout << str << ": start : " << start << " End: " << right << " Palindrome for string :" << len << " -> "
+                 << str.substr(start, len) <<" is True " << endl;
+        } else {
+            cout << str << ": start : " << start << " End: " << right << " Palindrome for string :" << len << " -> "
+                 << str.substr(start, len) <<" is False " << endl;
+        }
+    }
+    return ret;
+}
+
+string
+longestPalindromicSubstring(string str) {
+    int maxPalindromeLength = -1;
+    int currPalindromeLength = -1;
+    int start = -1;
+    int startIdx = -1;
+    bool isPalindrome = false;
+    int len = -1;
+    bool dbgLog = false;
+
+
+    if (str.length() == 0) {
+        return  "";
+    }
+
+    if (str.length() == 1) {
+        return str;
+    }
+
+    for (len = 0; len <= str.length(); len++) {
+        isPalindrome = false;
+        for (start = 0; start <= str.length() - len; start++) {
+            isPalindrome = isPalindromeHelper(str, start, len);
+            if (isPalindrome) {
+                currPalindromeLength = len;
+                break;
+            }
+            if (dbgLog) {
+                cout << "isPalindrome for substr<local> <Len:" << len << ">: " << str.substr(start, len) << "-> :is: "
+                     << isPalindrome << endl;
+            }
+        }
+        if ((isPalindrome) && (currPalindromeLength > maxPalindromeLength)) {
+            if (dbgLog) {
+                cout << "isPalindrome for substr<Global> <Len:" << len << ">: " << str.substr(start, len) << "-> :is: "
+                     << isPalindrome << endl;
+            }
+            maxPalindromeLength = currPalindromeLength;
+            startIdx = start;
+        }
+    }
+    if (maxPalindromeLength > 0) {
+        return (str.substr(startIdx, maxPalindromeLength));
+    } else {
+        return "";
+    }
+}
 
 
 
+------------------------------------------------------------------------------------
+Group Anangrams
+Given a list of string, we need to group anagrams together.
+
+Create a copy of strings. -> Copy
+for each element in Copy
+    1. sort the element using inbuilt Function
+for each word in Copy
+    find duplicate of words (Anagram after sorting becomes same word.)
+    coy all words in indices and remove from the Copy and place in another list
+
+Words = {"yo", "act", "flop", "tac", "foo", "cat", "oy", "olfp"}
+
+Outout -> {{"yo", "oy"}, {"flop", "olfp"}, {"act", "tac", "cat"}, {"foo"}}
+
+
+vector<vector<string>>
+groupAnagrams(vector<string> words) {
+    // empty string
+    if (words.size() == 0) {
+        return {};
+    }
+    // only one element
+    if (words.size() == 1) {
+        vector<vector<string>> groupAnagramsList;
+        vector<string> anagram;
+        anagram.push_back(words[0]);
+        groupAnagramsList.push_back(anagram);
+        return;
+    }
+    /* copy the words into another aux list to copy its content */
+    vector<string> aux;
+    /* copy */
+    for (auto word:words) {
+        aux.push_back(word);
+    }
+
+    /* Sort every word in words using builtin sort function */
+    for (string &word:words) {
+        sort(word.begin(), word.end());
+    }
+
+    // temp to hold current word
+    string word = "";
+    // output vector
+    vector<vector<string>> groupAnagramsList;
+    vector<string> anagram;
+    for (int idx1 = 0; idx1 < words.size(); idx1++) {
+        // every word we put in output array, we place empty string in place of it
+        if (words[idx1] == "") {
+            continue;
+        }
+        word = words[idx1];
+        // clear the list before reusing.
+        anagram.clear();
+        // place the corresponding word in idx1
+        anagram.push_back(aux[idx1]);
+        // mark empty at position idx1
+        words[idx1]="";
+        for (int idx2= idx1 + 1; idx2 < words.size(); idx2++) {
+            // every word we put in output array, we place empty string in place of it
+            if (words[idx2] == "") {
+                continue;
+            }
+            // we found anagram
+            if (words[idx2] == word) {
+                anagram.push_back(aux[idx2]);
+                words[idx2] = "";
+            }
+        }
+        groupAnagramsList.push_back(anagram);
+    }
+
+    for (int idx = 0; idx < aux.size(); idx++) {
+        words[idx] = aux[idx];
+    }
+    aux.clear();
+    return groupAnagramsList;
+}
+
+
+-------------------------------------------------------------------------
+Reverse Words In String
+
+Given a line. Reverse the words in the line
+Input ->  AlgoExpert is the best!
+Output -> best! the is AlgoExpert
+
+you cant use reverse built in API
+
+Iterate line and for every word ecounter, place in array and also place the amount of space
+Join the array to form the output
+
+string
+reverseWordsInString(string str) {
+    bool dbgLog = false;
+    /* empty string */
+    if (str == "") {
+        return "";
+    }
+
+    /* Iterate string and store the words in vector */
+    /* array to store words in str */
+    vector<string> words = {};
+    // use to keep the current word
+    string word = "";
+    // space -> use to account space
+    string  space = "";
+    /* iterate string */
+    for (int idx = 0; idx < str.length(); idx++) {
+        if (str[idx] == ' ') { //space
+            if (word != "") {
+                words.push_back(word);  //place word in words
+                word = "";
+            }
+            space  = space + str[idx];
+        } else { // word
+            if (space != "") {
+                words.push_back(space); //place the space in words
+                space = "";
+            }
+            word = word + str[idx];
+        }
+    }
+
+    // last one
+    if (word != "") {
+        words.push_back(word);
+        word = "";
+    } else if (space != "") {
+        words.push_back(space);
+        space = "";
+    } else {
+        // do nothing. <both are null >
+    }
+    if (dbgLog) {
+        for (auto data:words) {
+            cout << data << "--";
+        }
+        cout << endl;
+    }
+
+    // calculate the size of words that will be used to create reverse string
+    int count = words.size();
+    string reverseStr = "";
+    for (int idx = count - 1; idx >= 0; idx--) {
+        reverseStr = reverseStr + words[idx];
+    }
+
+    if (dbgLog) {
+        cout << "Reverse :" << reverseStr << endl;
+    }
+    return reverseStr;
+}
+
+---------------------------------------------------------------------------
+minimum characters for word
+-> given array of words -> give minimum number of character require to compose the array.
+
+["y, "r", "o", "u"] is needed to make ["you", "yours", "or", "yo"]
+
+{"this", "that", "did", "deed", "them!", "a"}
+        -> {"t", "t", "h", "i", "s", "a", "d", "d", "e", "e",  "m", "!"}
+
+unorder_map -> char -> count.
+
+1. keep unordered_map -> global to keep account of minimum number of charcaters needed to create words
+2. Keep local unordered_map to count of characters in word
+3. keep local and global in sync
+
+for every word in array {
+    for every character <ch> in word {
+        if (local_map.find(ch) == local_map.end()) {
+            local_map[ch] = 0;
+        }
+        local_map[ch]++;
+    }
+
+   for (auto entry : local_map) {
+       if (global_map.find(entry.first) == global_map.end()) {
+           global_map[entry.first] = entry.second;
+       } else if (global_map.[entry.first] < entry.second) {
+           global_map[entry.first] = entry.second;
+       } else {
+           // do nothing
+       }
+   }
+      cout << entry.first << " " << entry.second << endl;
+}
+
+// covert the map to array
+vector<string> str;
+for (auto entry : global_map) {
+    if (entry.first == 1) {
+        str.push_back(to_string(entry.first));
+    } else {
+        for (int i = 0; i < entry.second; i++) {
+            str.push_back(to_string(entry.first));
+        }
+    }
+}
+return str;
+
+
+vector<char>
+minimumCharactersForWords(vector<string> words) {
+    if (words.size() == 0) {
+        return {};
+    }
+    // local unordered map to track characters in word
+    unordered_map<char, int> local_map;
+    // global unordered map to track characters globally
+    unordered_map<char, int> global_map;
+
+    bool dbgLog = false;
+
+    // iterate every word in array
+    for (string word:words) {
+        local_map.clear();
+        for (char ch:word) {
+            // we did added the character to local list yet
+            if (local_map.find(ch) == local_map.end()) {
+                local_map[ch] = 0;
+            }
+            // character is occuring more than one
+            local_map[ch]++;
+        }
+        // sync with global
+        for (auto entry : local_map) {
+            // local entry does not exist in  global
+            if (global_map.find(entry.first) == global_map.end()) {
+                global_map[entry.first] = entry.second;
+            } else if (global_map[entry.first] < entry.second) {
+                global_map[entry.first] = entry.second;
+            } else {
+                // do nothing
+            }
+        }
+        if (dbgLog) {
+            //cout << entry.first << " " << entry.second << endl;
+        }
+    }
+
+    // covert the map to array
+    vector <char> str;
+    // iterate global map
+    for (auto entry : global_map) {
+        if (entry.first == 1) {
+            // first time occurrences
+            str.push_back(entry.first);
+        } else {
+            // more than one occurrences of character in a word
+            for (int i = 0; i < entry.second; i++) {
+                str.push_back(entry.first);
+            }
+        }
+    }
+    return str;
+}
+
+void
+test_minimumCharactersForWords() {
+    vector<string> words={};
+    vector<char> characters = {};
+
+    cout << "-----------------------------------------------" << endl;
+    words = {"this", "that", "did", "deed", "them!", "a"};
+    cout << "Input < words >" << endl;
+    for (auto word:words) {
+        cout << word << " ";
+    }
+    cout << endl;
+    characters = minimumCharactersForWords(words);
+    cout << "Output < characters needed to make words >" << endl;
+    for (auto character:characters) {
+        cout << character << " ";
+    }
+    cout << endl;
+}
+
+----------------------------------------------------------------------------------------
+
+Trie -->
+
+Node ->
+
+
+
+------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+// Vmware organizes a conference and a good number of papers get published in the conference.
+// All the participants in the conference are asked to rate the papers and must have to rate all the papers in the order
+// For example if we have 4 papers - A, B, C, D
+// So person needs to give unique rating to each paper so
+// B-1
+// A-2
+// C-3
+// D-4
+// => BACD
+
+// Now we need to build a calculator to calculate the people's choice rating, by considering the ratings given by each participants
+// The ordering of paper is decided by who received the most 1st position ratings. If two or more papers tie in the first position,
+// we consider the second position to resolve the conflict, if they tie again, we continue this process until the ties are resolved.
+// If two or more papers are still tied after considering all positions, we rank them alphabetically based on their paper name.
+// 4 participants
+// Rating: "ABC","ACB","BAC","BCA",
+
+// ABC
+
+
+pseudoCode
+0. paperCount
+1. for each currRank in paperCount
+    find the maximum vote  and that is not yet accounted in output
+    find the paper(s) which got maximum vote and that is not yet accounted in output - conflicts vector
+    if only one paper got the maximum vote, the add to output
+    else
+      currRatingIndex = currRank + 1;
+      while done is false && (currRatingIndex < paperCount) {
+        newConflict --> vector
+        minCount = 0;
+        currRatingIndex = currRank + 1;
+        for each  ch in conflicts vector {
+          if currRatingIndex[ch] > minCount {
+            newConflict.clear();
+            newConflict.push_back(ch);
+            minCount = currRating[ch];
+          } else if (currRatingIndex[ch] == minCount) {
+             newConflict.push_back(ch);
+          }
+        }
+        if (newConflict.size() == 1) {
+          done = true;
+          output = output + ch;
+          break;
+        } else {
+          conflict = newConflict;
+          currRatingIndex = currRatingIndex + 1;
+        }
+      }
+      if (!done) {
+        minCh = CHAR_MAX;
+        for (ch : conflicts) {
+          if ch < minCh  {
+            minCh = ch;
+          }
+        }
+        output = output + minCh;
+      }
+
+
+-->
+string
+ratingCalculater(vector<string> ratings) {
+    bool dbgLog = false;
+    if (ratings.size() == 0)  {
+        return "";
+    }
+    if (ratings.size() == 1) {
+        return ratings[0];
+    }
+
+
+    int paperCount = ratings[0].length();
+
+    vector<unordered_map<char, int>> ratingsMap(paperCount);
+    std::size_t found;
+
+    int currRank = 0;
+    vector<char> conflicts = {};
+    vector<char> newConflicts = {};
+    string output = "";
+    int maxCount = 0;
+    unordered_map<char, int> currMap = {};
+    int currRatingIndex;
+    bool done = false;
+    int maxCount2 = 0;
+    unordered_map<char, int> currHash = {};
+    char ch, minCh;
+
+    for (currRank = 0; currRank < paperCount; currRank++) {
+        currMap = ratingsMap[currRank];
+        for (auto str:ratings) {
+            ch = str[currRank];
+
+            if (currMap.find(ch) == currMap.end()) {
+                currMap[ch] = 1;
+
+            } else {
+                currMap[ch] = currMap[ch] + 1;
+            }
+        }
+        ratingsMap[currRank] = currMap;
+    }
+
+    if (dbgLog) {
+        for (currRank = 0; currRank < paperCount; currRank++) {
+            currMap = ratingsMap[currRank];
+            cout << "mapIdx :" << currRank << endl;
+            for (auto hash:currMap) {
+                cout << "{" << hash.first << " " << hash.second << " }";
+            }
+            cout << endl;
+        }
+    }
+    for (currRank = 0; currRank < paperCount; currRank++) {
+        maxCount = 0;
+        currMap = ratingsMap[currRank];
+        done = false;
+
+        for (auto hash:currMap) {
+            ch = hash.first;
+            found = output.find(ch);
+            if (found == std::string::npos) {
+                if (hash.second > maxCount) {
+                    conflicts.clear();
+                    conflicts.push_back(hash.first);
+                    maxCount = hash.second;
+
+                } else if (hash.second == maxCount) {
+                    conflicts.push_back(hash.first);
+
+                } else {
+                    cout << __LINE__ << endl;
+                }
+            }
+        }
+
+        if (conflicts.size() == 1) {
+            output = output + conflicts[0];
+            done = true;
+        }
+
+        if (dbgLog) {
+            cout << __LINE__ << " Conflicts: Size " << conflicts.size() << endl;
+            for (auto ch:conflicts) {
+                cout << ch << " ";
+            }
+            cout << endl;
+        }
+
+
+        currRatingIndex = currRank + 1;
+        maxCount2 = 0;
+        while ((!done) && (currRatingIndex < paperCount)) {
+            newConflicts.clear();
+            maxCount2 = 0;
+            currHash = ratingsMap[currRatingIndex];
+            if (dbgLog) {
+                cout << __LINE__ << " Conflicts: Siz " << conflicts.size() << endl;
+                for (auto ch:conflicts) {
+                    cout << ch << " ";
+                }
+                cout << endl;
+            }
+            for (auto ch:conflicts) {
+                if (currHash[ch] > maxCount2) {
+                    newConflicts.clear();
+                    newConflicts.push_back(ch);
+                    maxCount2 = currHash[ch];
+                } else if (currHash[ch] == maxCount2) {
+                    newConflicts.push_back(ch);
+                }
+            }
+
+            if (newConflicts.size() == 1) {
+                done = true;
+                output = output + ch;
+
+                if (dbgLog) {
+                    cout << __LINE__ << " Char : "<< conflicts[0] << "Output" << output << endl;
+                }
+            } else {
+                conflicts = newConflicts;
+                currRatingIndex = currRatingIndex + 1;
+            }
+        }
+
+
+        if (!done) {
+            minCh = CHAR_MAX;
+            for (auto ch : conflicts) {
+                if (ch < minCh)  {
+                    minCh = ch;
+                }
+            }
+            output = output + minCh;
+
+            if (dbgLog) {
+                cout << __LINE__ << " No Resolution: Char : "<< conflicts[0] << " Output" << output << endl;
+            }
+        }
+    }
+    return output;
+}
+
+void
+test_ratingCalculator() {
+    vector<string> ratings  ={"ACB","CAB","CBA","BAC","BCA","ABC"};
+    for (auto str:ratings) {
+        cout << str << " ";
+    }
+    cout << endl;
+    string output = ratingCalculater(ratings);
+    cout << output << endl;
+}
+
+
+
+// "ACB","CAB","CBA","BAC","BCA","ABC"
+// ABC
+
+
+---------------------------------------------------------------------------------------
+
+
+/* TinyUrl  */
+
+
+#include <unordered_map>
+#include <string>
+using namespace std;
+
+class TinyUrl
+{
+    unordered_map<string, string> hashTable;
+    int modulo;
+    int monotonicallyIncreasingNumber;
+public:
+    TinyUrl() {
+        modulo = 23;
+        monotonicallyIncreasingNumber = 0;
+        hashTable = {};
+    }
+
+    string
+    Compress(string url, int userId) {
+        string orig_url =url;
+        url = url + to_string(userId);
+        int hash;
+        string hashStr ="";
+        url = url + to_string(userId);
+        for (char ch:url) {
+            hash = ((hash * 10) + ch )% modulo;
+        }
+        hashStr = to_string(hash);
+        if (hashTable.find(hashStr) != hashTable.end()) {
+            string val = hashTable.find(hashStr)->second;
+            if (val == orig_url) {
+                return hashTable.find(hashStr)->first;
+            } else {
+                string temp = hashStr;
+                monotonicallyIncreasingNumber++;
+                hashStr = temp + to_string(monotonicallyIncreasingNumber);
+                while (hashTable.find(hashStr) != hashTable.end()) {
+                    monotonicallyIncreasingNumber++;
+                    hashStr = temp + to_string(monotonicallyIncreasingNumber);
+                }
+                hashTable.insert({hashStr, orig_url});
+                return hashStr;
+            }
+        } else {
+            hashTable.insert({hashStr, orig_url});
+            return hashStr;
+        }
+    }
+
+    string
+    deCompress(string hashStr) {
+        if (hashTable.find(hashStr) == hashTable.end()) {
+            cout << "No hash Find" << endl;
+            return nullptr;
+        } else {
+            return hashTable.find(hashStr)->second;
+        }
+
+    }
+};
+
+void
+test_tinyURL() {
+    TinyUrl *app = new TinyUrl();
+    string key = app->Compress("www.vmware.com", 11);
+    cout << "key for www.vmware.com with user Id 11:" << key << endl;
+    cout << "value for the key" << app->deCompress(key) << endl;
+    free(app);
+}

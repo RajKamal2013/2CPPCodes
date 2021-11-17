@@ -1,0 +1,763 @@
+Heap
+
+/*
+Min heap Construction
+
+Implement a min Heap that supports
+1. Building a MinHeap from input array of integers
+2. Inserting integers in the heap
+3. Removing heap minimum / root value
+4. Peeking at heap's minimum/root value
+5. Shifting integers up and down the heap to maintain insertion and deletion
+
+Example of APIs
+    array => 48, 12, 24, 7, 8, -5, 24, 391, 24, 56, 2, 6, 8, 41
+    MinHeap(array)
+    buildHeap(array)  -> {-5, 2, 6, 7, 8, 8, 24, 391, 24, 56, 12, 24, 48, 41}
+    insert(76)  ->  {5, 2, 6, 7, 8, 8, 24, 391, 24, 56, 12, 24, 48, 41, 76}
+    peek() -> -5
+    remove() -> [2, 7, 6, 24, 8, 8, 24, 391, 76, 56, 12, 24, 48, 41]
+    peek() -> 2
+    remove() -> 2 [ 6, 7, 8, 24, 8, 24, , 24, 391, 76, 56, 12, 41, 48]
+    peek() -> 6
+    insert(87) -> [6, 7, 8, 24, 8, 24, , 24, 391, 76, 56, 12, 41, 48, 87]
+*/
+
+
+class MinHeap {
+private:
+    bool debugLog;
+public:
+    // keep the heap in vectors
+    vector<int> heap;
+
+    bool dbgLog;
+
+
+    MinHeap(vector<int> vector) {
+        this->heap = buildHeap(vector);
+        this->dbgLog = true;
+        this->debugLog = true;
+    }
+
+    // build heap from heap vector
+    vector<int>
+    buildHeap(vector<int> &heap) {
+        if (heap.size() == 0) {
+            return {};
+        }
+        int idx;
+        // sift from nodes above leaves
+        for (idx = 0; idx < heap.size(); idx++) {
+            insert(heap[idx]);
+        }
+        return this->heap;
+    }
+
+    // go down to maintain heap property. -> removal or maintaining heap
+    void
+    siftDown(int currentIdx, int endIdx, vector<int> &heap) {
+        if ((heap.size() == 0) || (heap.size() == 1)) {
+            return;
+        }
+
+        int left, right, smaller, temp;
+
+        while (currentIdx < endIdx) {
+            left = 2 * currentIdx + 1;
+            right = 2 * currentIdx + 2;
+
+            if ((left < endIdx) && (heap[left] < heap[currentIdx])) {
+                smaller = left;
+            } else {
+                smaller = currentIdx;
+            }
+
+            if ((right < endIdx) && (heap[right] < heap[smaller])) {
+                smaller = right;
+            }
+
+            // swap
+            if (smaller != currentIdx) {
+                temp = heap[currentIdx];
+                heap[currentIdx] = heap[smaller];
+                heap[smaller] = temp;
+                currentIdx = smaller;
+            } else {
+                break;
+            }
+        }
+    }
+
+
+// go up to maintain heap property, -> insertion in the heap
+    void
+    siftUp(int currentIdx, vector<int> &heap) {
+        if ((heap.size() == 0) || (heap.size() == 1)) {
+            return;
+        }
+        int parent, temp;
+
+        parent = (currentIdx - 1)/2;
+        while ((currentIdx > 0) && (heap[currentIdx] <= heap[parent])) {
+            temp = heap[parent];
+            heap[parent] = heap[currentIdx];
+            heap[currentIdx] = temp;
+            currentIdx  = parent;
+            parent = (currentIdx - 1)/2;
+        }
+    }
+
+    // min value ->
+    int
+    peek() {
+        if (this->heap.size() == 0) {
+            return -1;
+        } else {
+            return this->heap[0];
+        }
+    }
+
+    int
+    remove() {
+        if (this->heap.size() == 0) {
+            return -1;
+        }
+        int minValue, temp, len;
+        minValue = this->heap[0];
+
+        if (this->heap.size() == 1) {
+            this->heap.pop_back();
+            return minValue;
+        }
+
+        if (this->heap.size() == 2) {
+           this->heap[0] = this->heap[1];
+           this->heap.pop_back();
+           return minValue;
+        }
+
+        this->heap[0] = this->heap[heap.size() - 1];
+        this->heap.pop_back();
+        //heap property
+        siftDown(0, this->heap.size(), this->heap);
+        return minValue;
+    }
+
+    void
+    insert(int value) {
+
+        int idx = this->heap.size();
+
+        // heap is empty and we are inserting
+        if (idx == 0) {
+            this->heap.push_back(value);
+            return;
+        }
+
+        this->heap.push_back(value);
+        // place appropriately
+        siftUp(idx, this->heap);
+    }
+
+    vector<int>&
+    getData() {
+        return this->heap;
+    }
+
+    void
+    debugLogHeap() {
+        cout << "Logging start : " << this->heap.size() << endl;
+        for (int i = 0; i < this->heap.size(); i++) {
+            cout << this->heap[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+-------------------------------------------
+Merge Sorted Array
+
+Given list of sorted Arrays and merge them to return sorted Array consisting of all the elements
+
+Input ->
+{1, 5, 9, 21}
+{-1, 0}
+{-124, 81, 121}
+{3, 6, 12, 20, 150}
+
+Output -> {-124, -1, 0, 1, 3, 5, 6, 9, 12, 20, 21, 81, 121, 150}
+
+
+MinHeap ->
+
+buildMinHeap()
+siftDown()
+siftUp()
+remove()
+insert()
+class MinHeapExternalSort {
+public:
+    vector<int> heapArray;
+    MinHeapExternalSort(vector<int> array = {}) {
+        buildHeap(array);
+    }
+
+    void buildHeap(vector<int> array) {
+        if (array.size() == 0) {
+            return;
+        }
+
+        for (int i = 0; i < array.size(); i++) {
+            insert(array[i]);
+        }
+    }
+
+    // keeps heap invarient as part of removal.
+    void siftDown(vector<int> &heap, int currentIdx, int endIdx ) {
+        if ((heap.size() == 0) || (heap.size() == 1)) {
+            return;
+        }
+        int smaller, left, right, temp;
+
+        while (currentIdx < endIdx) {
+            left = 2 * currentIdx + 1;
+            right = 2 * currentIdx + 2 ;
+
+            // parent is greater, we need to push the parent down. parent has to be smaller .
+            if ((left < endIdx) && (heap[currentIdx] > heap[left])) {
+                smaller = left;
+            } else { // parent is smaller then left
+                smaller = currentIdx;
+            }
+
+            // check if right is smaller of parent and left
+            if ((right < endIdx) && (heap[smaller] > heap[right])) {
+                smaller = right;
+            }
+
+            // either left or right is smaller than parent. we need to swap it with parent
+            if (currentIdx != smaller) {
+                temp = heap[currentIdx];
+                heap[currentIdx] = heap[smaller];
+                heap[smaller] = temp;
+                currentIdx = smaller;
+            } else { // heap invarient is attached.
+                break;
+            }
+        }
+    }
+
+    // keeps heap invarient as part of insertion buildheap.
+    void siftUp(vector<int> &heap, int currentIdx) {
+        if ((heap.size() == 0) || (heap.size() == 1)) {
+            return;
+        }
+
+        int parent, temp;
+        parent = (currentIdx - 1)/2;
+        while ((currentIdx > 0) && (heap[parent] > heap[currentIdx])) {
+            temp = heap[currentIdx];
+            heap[currentIdx] = heap[parent];
+            heap[parent] = temp;
+            currentIdx = parent;
+            parent = (currentIdx - 1)/2;
+        }
+    }
+
+    void insert(int value) {
+        heapArray.push_back(value);
+        if (heapArray.size() == 1) {
+            return;
+        }
+        int idx = heapArray.size() - 1;
+        siftUp(heapArray, idx);
+    }
+
+    int removeMin() {
+        if (heapArray.size() == 0) {
+            return INT_MAX;
+        }
+
+        int min;
+        min = heapArray[0];
+
+        if (heapArray.size() == 1) {
+            heapArray.pop_back();
+            return min;
+        }
+
+        heapArray[0] = heapArray[heapArray.size() - 1];
+        heapArray.pop_back();
+        siftDown(heapArray, 0, heapArray.size());
+        return min;
+    }
+
+    vector<int> heapSort() {
+        vector<int> sortedArray = {};
+        int val;
+        if ((heapArray.size() == 0) || (heapArray.size() == 1)) {
+            return heapArray;
+        }
+
+        while (heapArray.size() > 0) {
+            val = removeMin();
+            sortedArray.push_back(val);
+        }
+        return sortedArray;
+    }
+};
+
+vector<int>
+mergeSortedArrays(vector<vector<int>> arrays) {
+    vector<int> sortedArray = {};
+    // empty arrays
+    if (arrays.size() == 0) {
+        return {};
+    }
+    // just one element in arrays
+    if (arrays.size() == 1) {
+        return arrays[0];
+    }
+
+    // populate minheap
+    MinHeapExternalSort *heap = new MinHeapExternalSort();
+    for (auto &array:arrays) {
+        heap->buildHeap(array);
+    }
+
+    // get all the element from heapSort(), this erase the heap too.
+    sortedArray = heap->heapSort();
+
+    return sortedArray;
+}
+void
+test_mergeSortedArray() {
+    vector<int> arrays = {};
+    vector<int> array = {};
+
+    array = {1, 5, 9, 21};
+    arrays.push_back(array);
+
+    array = { -1, 0};
+    arrays.push_back(array);
+
+    array = {-124, 81, 121};
+    arrays.push_back(array);
+
+    array = {3, 6, 12, 20, 150};
+    arrays.push_back(array);
+
+    cout << "--------------------------------------------------------" << endl;
+    cout << "Input : <arrays> " << endl;
+    for (auto &list:arrays) {
+        cout << "{ ";
+        for (auto &data: list) {
+            cout << data << " ";
+        }
+        cout << "}" << endl;
+    }
+
+    cout << "Output <Sorted Array afer merging sorted Array> " << endl;
+    sortedArray = mergeSortedArrays(arrays);
+    cout << "{ " ;
+    for (auto &data:sortedArray) {
+        cout << data << " ";
+    }
+    cout<< "}" << endl;
+
+
+}
+
+
+-----------------------------------------------------------------------------------------
+Merge K Sorted Arrays
+
+Time -> O(Klogn) + O(nlogn)
+Space -> O(n)
+
+struct Item {
+    int arrIdx;
+    int elementIdx;
+    int value;
+};
+
+
+
+
+struct Item {
+    int arrIdx;
+    int elementIdx;
+    int value;
+};
+
+
+
+class MinHeapMergeSort {
+public:
+    vector<Item> heapItems;
+    MinHeapMergeSort(vector<Item>array = {}) { heapItems = array; buildHeap();}
+
+    void buildHeap() {
+        for (int i = heapItems.size()/2; i >= 0; i--) {
+            siftDown(i, heapItems.size() - 1);
+        }
+    }
+
+    void siftDown(int currentIdx,int endIdx) {
+        int left, right, smaller;
+        Item temp;
+
+        for (auto data:heapItems) {
+            cout << data.value <<  " " ;
+        }
+        cout << endl;
+
+        while (currentIdx <= endIdx) {
+            left = 2 * currentIdx + 1;
+            right = 2 * currentIdx + 2;
+
+            if ((left <= endIdx) && (heapItems[left].value < heapItems[currentIdx].value)) {
+                smaller = left;
+            } else {
+                smaller = currentIdx;
+            }
+
+            if ((right <= endIdx) && (heapItems[right].value < heapItems[smaller].value)) {
+                smaller = right;
+            }
+
+            if (currentIdx != smaller ) {
+                swap(heapItems[currentIdx], heapItems[smaller]);
+                currentIdx = smaller;
+            } else {
+                break;
+            }
+        }
+        for (auto data:heapItems) {
+            cout << data.value <<  " " ;
+        }
+        cout << endl;
+    }
+
+    void siftUp(int currentIdx) {
+        int parent = (currentIdx  - 1)/2;
+        Item temp;
+        while (currentIdx > 0) {
+            if (heapItems[parent].value > heapItems[currentIdx].value) {
+                temp = heapItems[currentIdx];
+                heapItems[currentIdx] = heapItems[parent];
+                heapItems[parent] = temp;
+                currentIdx = parent;
+                parent = (currentIdx - 1)/2;
+            } else {
+                break;
+            }
+        }
+    }
+
+    void insert(Item &data) {
+        heapItems.push_back(data);
+        if (heapItems.size() == 1) {
+            return;
+        }
+
+        siftUp(heapItems.size() - 1);
+    }
+
+    Item removeMin() {
+        Item min = {INT_MAX, INT_MAX, INT_MAX};
+        if (heapItems.size() == 0) {
+            return min;
+        }
+        min = heapItems[0];
+        if (heapItems.size() == 1) {
+            heapItems.pop_back();
+            return min;
+        }
+        heapItems[0] = heapItems[heapItems.size() - 1];
+        heapItems.pop_back();
+        siftDown(0, heapItems.size() - 1);
+        return min;
+        }
+
+        void showValue() {
+            for (auto data:heapItems) {
+                cout << data.value << " ";
+            }
+            cout << endl;
+        }
+};
+
+
+    vector<int>
+    mergeSortedArrays(vector<vector<int>> arrays) {
+        vector<int> sortedArray = {};
+        vector<Item> arrayElmt = {};
+        vector<int> arr = {};
+        Item item;
+        for (int idx = 0; idx < arrays.size(); idx++) {
+            arr = arrays[idx];
+            item = {idx, 0, arr[0]};
+            cout << "Pushing:" << item.value << endl;
+            arrayElmt.push_back(item);
+        }
+
+        MinHeapMergeSort *heap = new MinHeapMergeSort(arrayElmt);
+        heap->showValue();
+        bool SortComplete = false;
+        int arrIdx, elmtIdx, value;
+        while (!SortComplete) {
+            item = heap->removeMin();
+            if (item.value == INT_MAX) {
+                SortComplete = true;
+                break;
+            }
+            cout <<"Removed: " << item.value << endl;
+            sortedArray.push_back(item.value);
+            arrIdx = item.arrIdx;
+            elmtIdx = item.elementIdx;
+            arr = arrays[arrIdx];
+            while (elmtIdx == arr.size() - 1) {
+                item = heap->removeMin();
+                cout <<"Removed: " << item.value << endl;
+                if (item.value == INT_MAX) {
+                    SortComplete = true;
+                    break;
+                }
+                sortedArray.push_back(item.value);
+                arrIdx = item.arrIdx;
+                elmtIdx = item.elementIdx;
+                arr = arrays[arrIdx];
+            }
+            if (SortComplete) {
+                break;
+            } else {
+                item = {arrIdx, elmtIdx + 1, arr[elmtIdx + 1]};
+                cout <<"Inserting: " << item.value << endl;
+                heap->insert(item);
+            }
+        }
+        return sortedArray;
+    }
+
+struct Item {
+    int arrIdx;
+    int elementIdx;
+    int value;
+};
+
+--------------------------------------------------------------------------------------------------------
+K-Sorted Array
+Given k Sorted Array and returns the sorted array
+at most K sorted.
+array = [3, 2, 1, 5, 4, 7, 6, 5]
+k = 3
+
+output -> 1 2 3 4 5 5 6 7
+
+3 2 1
+
+1
+
+heap -> K element heap
+
+
+class MinHeap {
+public:
+    vector<int> heap;
+
+    MinHeap(vector<int> arr = {}) {
+        heap = arr;
+        buildMinHeap();
+    }
+
+    void buildMinHeap() {
+        for (int idx = heap.size()/2; idx >= 0; idx--) {
+            siftDown(idx, heap.size() - 1);
+        }
+    }
+
+    void siftDown(int currentIdx, int endIdx) {
+        int temp, left, right, smaller;
+
+        while (currentIdx <= endIdx) {
+            left = currentIdx * 2 + 1;
+            right = currentIdx * 2 + 2;
+
+            if ((left <= currentIdx) && (heap[left] < heap[currentIdx])) {
+                smaller = left;
+            } else {
+                smaller = currentIdx;
+            }
+
+            if ((right <= currentIdx) && (heap[right] < heap[smaller])) {
+                smaller = right;
+            }
+
+            if (currentIdx != smaller) {
+                swap(heap[currentIdx], heap[smaller]);
+                currentIdx = smaller;
+            } else {
+                break;
+            }
+        }
+    }
+
+    void siftUp(int currentIdx) {
+        int parent, temp;
+        parent = (currentIdx - 1)/2;
+        while(currentIdx > 0) {
+            if (heap[currentIdx] < heap[parent]) {
+                swap(heap[currentIdx], heap[parent]);
+                currentIdx = parent;
+                parent = (currentIdx - 1)/2;
+            } else {
+                break;
+            }
+        }
+    }
+
+    void insert(int value) {
+        heap.push_back(value);
+        if (heap.size() == 1) {
+            return;
+        }
+        siftUp(heap.size() - 1);
+    }
+
+    int removeMin() {
+        if (heap.size() == 0) {
+            return INT_MAX;
+        }
+        int min = heap[0];
+        if (heap.size() == 1) {
+            heap.pop_back();
+            return min;
+        } else {
+            heap[0] = heap[heap.size() - 1];
+            heap.pop_back();
+            retur min;
+        }
+    }
+};
+
+vector<int> sortKSortedArray(vector<int> array, int k) {
+   if ((array.size() == 0) || (array.size() == 1)) {
+       return array;
+   }
+   int idx = 0;
+   for (idx = 0; idx < k; idx++) {
+       if (idx < array.size()) {
+            arr.push_back(array[idx]);
+       }
+   }
+
+   MinHeap *heap = new MinHeap(arr);
+   int currIdx = 0;
+   int elmt = INT_MAX;
+
+   for (idx = k; idx < = array.size(); idx++) {
+        elmt = heap->removeMin();
+        if (elmt == INT_MAX {
+            break;
+        }
+        array[currentIdx]= elmt;
+        currIdx++;
+        heap->insert(array[idx]);
+    }
+
+   elmt = heap->removeMin();
+   while (elmt != INT_MAX {
+      array[currIdx] = elmt;
+      currentIdx++;
+      elmt = heap->removeMin();
+   }
+   return array;
+}
+
+
+------------------------------------------------------------------------------------------
+
+-> Continuous mean
+
+Min heap  -> larger number
+Max Heap  -> smaller number
+
+Invariant ->
+    MaxHeap will have smaller number than top of MinHeap.
+    MaxHeap count can be at max greater than MinHeap by 1 or equal to MinHeap.
+odd number -> MaxHeap will have more number  -> Median -> (MaxHeap.top())
+even number -> MaxHeap and Min Heap will have same number. Median => (MaxHeap.top() + MinHeap.top())/2
+
+insert(number)
+    if ((number <= MinHeap.peek()) || (MinHeap.empty())) {
+        insert in MaxHeap
+    } else {
+        insert in MinHeap
+    }
+
+    countMin = MinHeap.size();
+    countMax = MaxHeap.size();
+
+    if ((countMin == countMax) || (countMin + 1 == CountMax)){
+        return;
+    } else if (countMin + 1 > countMax) {
+        val = removeMin from MinHeap
+        insert(val) to MaxHeap
+    } else { //countMax > countMin
+        val = removeMax from MaxHeap
+        insert(val) to MinHeap
+    }
+
+median()
+    countMin = MinHeap.size();
+    countMax = MaxHeap.size();
+
+    if (countMin == countMax) {
+            median = (MaxHeap.peek()) /2 + (MinHeap.peek()/2);
+    } else {
+        median = MaxHeap.peek();
+    }
+
+    return median
+
+
+class ContinuousMedianHandler {
+public:
+    double median;
+    priority_queue<int> maxHeap = {};
+    priority_queue<int, vector<int>, greater<int>> minHeap = {};
+
+    void insert(int number) {
+        if ((minHeap.empty()) || (maxHeap.top() > number)) {
+            maxHeap.push(number);
+        } else {
+            minHeap.push(number);
+        }
+
+        int countMin = minHeap.size();
+        int countMax = maxHeap.size();
+
+        if (countMax  > countMin + 1) {
+            minHeap.push(maxHeap.top());
+            maxHeap.pop();
+        } else if (countMax < countMin) {
+            maxHeap.push(minHeap.top());
+            minHeap.pop();
+        } else {
+
+        }
+
+        countMin = minHeap.size();
+        countMax = maxHeap.size();
+
+        if (countMin == countMax) {
+            median = ((double)maxHeap.top()/2 + (double)minHeap.top()/2);
+        } else {
+            median = maxHeap.top();
+        }
+    }
+
+    double getMedian() { return median; }
+};

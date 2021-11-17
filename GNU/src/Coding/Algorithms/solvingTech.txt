@@ -1,0 +1,133 @@
+Solving Techniques
+
+1. Merge OverLapping Intervals
+
+Given list of intervals, produce mutually exclusive intervals
+
+Interval -> {{1, 4}, {2, 5}, {7, 9}}
+Output -> {{1, 5}, {7, 9}}
+
+{1, 4} -> merged to {2, 5}
+
+
+Start => (1, 4) (2, 5) (7, 9)
+
+End   => (1, 4) (2, 5) (7, 9)
+
+
+
+{6, 7}, {2, 4}, {5, 9}
+
+6, 2, 5 -> 2, 5, 6
+7, 4, 9 -> 4, 7, 9
+
+Sorting based on start time -> (2, 4) (5, 9) (6, 7)
+
+Sorting based on end time ->   (2, 4) (6, 7) (5, 9)
+
+a,b, c -> intervals
+idx = 0;
+
+c.start = intervals[idx].start;
+c.start = intervals[idx].end;
+idx = 1;
+bool pushed = false;
+while (idx < intervals.size())
+    b = intervals[idx];
+    if (b.start <= c.end) { //overlapping
+        c.end = max(c.end, b.end);
+        idx = idx + 1;
+    } else {
+        c -> push to MergeIntervalArray
+        pushed = true;
+        idx = idx + 1;
+        if (idx < intervals.size()) {
+            c.start = intervals[idx].start;
+            c.end = Intervas[idx].end;
+            puhsed = false;
+        }
+        idx = idx + 1;
+    }
+
+if (!pushed) {
+    push c to the MergeIntervalArray
+}
+
+
+sort Interval based on start time.
+currIdx = 0
+nextIdx = 1;
+Interval c;
+
+while (currentIdx < intervals.size() ) {
+
+
+}
+
+class Interval {
+public:
+    int start;
+    int end;
+
+    Interval(int start, int end) {
+        this->start = start;
+        this->end = end;
+    }
+};
+
+[] const(Interval &x, const Interval &y) } {return x.start < y.start;}
+
+
+
+class MergeIntervals {
+public:
+    vector<Interval> merge(vector<Interval> &intervals) {
+        if (intervals.size() < 2) {
+            return intervals;
+        }
+
+        sort(intervals.begin(), Intervals.end(), [](const Interval &x, const Interval &y) {return x.start < y.start};
+
+        vector<Interval> mergedIntervals = {};
+        Interval c, b;
+        int idx;
+        bool pushed;
+
+        idx = 0;
+        c.start = intervals[idx].start;
+        c.end = intervals[idx].end;
+        pushed = false;
+        idx = 1;
+
+        while (idx < intervals.size()) {
+            b = intervals[idx];
+            if (b.start <= c.end) { //overlapping
+                c.end = max(c.end, b.end);
+                idx = idx + 1;
+            } else {
+                mergedIntervals.push_back(c);
+                pushed = true;
+                idx = idx + 1;
+                if (idx < intervals.size()) {
+                    c.start = intervals[idx].start;
+                    c.end = Intervas[idx].end;
+                    pushed = false;
+                }
+                idx = idx + 1;
+            }
+        }
+
+        if (!pushed) {
+            mergedIntervals.push_back(c);
+        }
+
+    return mergedIntervals;
+}
+
+Merged intervals: [1,5]
+Merged intervals: [2,4] [6,7]
+Merged intervals: [1,6]
+
+Merged intervals: [1,5] [7,9]
+Merged intervals: [2,4] [5,9]
+Merged intervals: [1,6]

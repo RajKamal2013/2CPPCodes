@@ -1,7 +1,7 @@
 Sorting
 
 1. Bubble Sorted
-
+-------------------------------------------------------
 1. Bubble Sort
 
 vector<int> bubbleSort(vector<int> array) {
@@ -21,7 +21,7 @@ vector<int> bubbleSort(vector<int> array) {
   return array;
 }
 
-
+-----------------------------------------------------
 
 2. Insertion Sort
 
@@ -43,3 +43,709 @@ while (i < array.size()) {
     i++;
 }
 }
+
+-------------------------------------------------------------
+3. Quick Sort
+
+
+int qSort(vector<int> &arr, int start, int end) {
+	int pivot = end;
+	int currIdx = start;
+	int lessThanPivot = start  - 1;
+
+	while (currIdx < end) {
+		if (arr[currIdx] <= arr[pivot]) {
+			lessThanPivot = lessThanPivot + 1;
+			if (currentIdx != lessThanPivot) {
+				swap(arr[currIdx], arr[lessThanPivot]);
+			}
+		} else { // only currIdx
+			currIdx = currIdx + 1;
+		}
+	}
+
+	lessThanPivot = lessThanPivot + 1;
+	swap(arr[pivot], arr[lessThanPivot]);
+	pivot = lessThanPivot;
+	return pivot;
+}
+
+void
+quickSortHelper(vector<int> &array, int start, int end) {
+	if (start < end) {
+		pivot = qSort(array, start, end);
+		quickSortHelper(array, start, pivot - 1);
+		quickSortHelper(array, pivot + 1, end);
+	}
+}
+
+vector<int> quickSort(vector<int> array) {
+  if (array.size()== 0) {
+  	return {};
+  }
+  if (array.size() == 1) {
+	  return array;
+  }
+
+  int start, end;
+  start = 0;
+  end = array.size() - 1;
+  quickSort(array, start, end);
+  return array;
+}
+
+--------------------------------------------------------------
+
+
+4. heap sort
+
+void siftDown(vector<int> &arr,  int currentIdx, int heapSize) {
+	int left, right, larger;
+
+	while(currentIdx < heapSize) {
+		left = 2 *currentIdx + 1;
+		right = 2 *currentIdx + 2;
+
+		if ((left < heapSize) && (arr[left] > arr[currentIdx])) {
+			larger = left;
+		} else {
+			larger = currentIdx;
+		}
+
+		if ((right < heapSize) && (arr[right] > arr[larger])) {
+			larger = right;
+		}
+
+		if (larger != currentIdx ) {
+			swap(arr[larger], arr[currentIdx]);
+			currentIdx = larger;
+		} else {
+			break;
+		}
+	}
+}
+
+void siftUp(vector<int> &arr, int currentIdx, int heapSize) {
+	int parent;
+
+	parent = (currentIdx - 1)/2;
+	while (currentIdx >= 0) {
+		if (arr[currentIdx] > arr[parent]) {
+			swap(arr[currentIdx], arr[parent]);
+			currentIdx = parent;
+			parent = (currentIdx - 1)/2;
+		} else {
+			break;
+		}
+	}
+}
+
+void buildHeap(vector<int> &arr) {
+	int heapSize = arr.size();
+	for (int idx = heapSize/2; idx >= 0; idx--) {
+		siftDown(arr, idx, heapSize);
+	}
+}
+
+int removeMax(vector<int>arr, int &heapSize) {
+	int heapTop = arr[0];
+	arr[0] = arr[heapSize - 1];
+	heapSize = heapSize -1;
+	return heapTop;
+}
+
+vector<int> heapSort(vector<int> array) {
+  buildHeap(array);
+  int heapSize = array.size();
+  while(heapSize != 1) {
+	  swap(array[heapSize -1], array[0]);
+	  heapSize = heapSize - 1;
+	  siftDown(array, 0, heapSize);
+  }
+  return array;
+}
+
+5. merge Sort
+
+
+vector<int> mergeSort(vector<int> array) {
+  // Write your code here.
+  return {};
+}
+
+
+
+-----------------------------------------------------------------------------------------
+6. Radix Sort
+
+
+Given non negative integers and sort using radix sort
+
+10 ->
+0 -> 0
+1 -> 1
+
+246 -> 246/(10^0)  % 10  -> 246 % 10    -> 6
+246 -> 246/(10^1)  % 10  ->  24 % 10    -> 4
+246 -> 246/(100^2) % 10  ->   2 % 10    -> 2
+
+246
+0 -> 6  (246/ 10 -> 24, 246/100 -> 2 246/1 -> 246 )
+1 -> 4
+2 -> 2
+
+5 8 2 6
+
+Logic ->
+maxD -> maximum number of digits in the all numbers of array.
+for each d in (0, maxD) {
+	countingSort(array, d)
+}
+
+
+-> rank -> 0 , 0 , 1, 0, 0, 1, 1, 0, 1, 0  -> 0, 0, 1, 1, 1, 2, 3, 3, 4, 4
+
+aux[rank[arr[0]] -1 ] -> aux[rank[5] - 1] => aux[1] = array[0] -> aux[1] = 5
+rank -> 0, 0, 1, 1, 1, 1, 3, 3, 4, 4
+aux[rank[arr[1]] -1]] -> aux[rank[8] -1]  => aux[3] = arrray[1] => aux[3] = 8
+rank -> 0, 0, 1, 1, 1, 1, 3, 2, 4, 4
+aux[rank[arr[2]] -1]  -> aux[rank[2] - 1] => aux[0] = array[2] => aux[0] = 2
+rank -> 0, 0, 1, 0, 1, 1, 3, 2, 4, 4
+aux[rank[arr[3]] -1 ] -> aux[rank[6] - 1] => aux[2]  = array[3] => aux[2] = 6
+1. counting sort on each postion on numner . Start from end to start.
+
+
+
+class RadixSort {
+    int base;
+    int R;
+    bool dbgLog;
+public:
+    RadixSort(int base = 10) {
+        this->base = 10;
+        this-> R =  10;
+        dbgLog = false;
+    }
+private:
+    //base -> 10 for numbers
+    int getDigit(int number, int pos, int maxD) {
+        int divisor = (int) pow(base, pos);
+        int digit = (number / divisor);
+        if (digit > 0) {
+            digit = digit % base;
+            digit = digit + 1;
+        } else {
+            digit = 0;
+        }
+        /*
+        if (dbgLog) {
+            cout << "Digit<" << pos << ">" << " for number " << number << " is " << digit << endl;
+        }
+         */
+        return digit;
+
+    }
+
+    // get maximum number of digits among all numbers in the array
+    int maxNumberOfDigits(vector<int> array) {
+        int maxDigit = 0;
+        int d = 0;
+        int number, divisor;
+        for (auto data:array) {
+            d = 0;
+            number = data;
+            while (number > 0) {
+                divisor = (int)pow(base, d);
+
+                divisor = (int)pow(base, d);
+                number = data / divisor;
+                d = d + 1;
+            }
+            if (maxDigit < d) {
+                maxDigit = d;
+            }
+
+        }
+        return maxDigit;
+    }
+
+    //counting sort at position d for numbers in array.
+    void countingSort(vector<int> &array, int d, int maxD) {
+        // copy of array
+        vector<int> aux(array);
+        // for rank computation
+        vector<int> rank(R + 2, 0);
+
+        int digitAtPos;
+
+        // compute frequency
+        for (int idx = 0; idx < array.size(); idx++) {
+            digitAtPos = getDigit(array[idx], d, maxD);   // mapping each number to 0 to 9
+            rank[digitAtPos] = rank[digitAtPos] + 1;
+        }
+
+        // compute ranks
+        for (int idx = 1; idx <= R + 2; idx++) {
+            rank[idx] = rank[idx] + rank[idx - 1];
+        }
+
+        // copy  back -> <in place u need to start from end >
+        for (int idx = array.size() - 1; idx >= 0; idx--) {
+            digitAtPos = getDigit(array[idx], d, maxD);
+            aux[rank[digitAtPos] - 1] = array[idx];
+            rank[digitAtPos] = rank[digitAtPos] - 1;
+        }
+
+        // copy back
+        for (int idx = 0; idx < array.size(); idx++) {
+            array[idx] = aux[idx];
+        }
+        if (dbgLog) {
+            cout << "Sorted at D: " << d << endl;
+            display(array);
+            display(aux);
+        }
+
+    }
+
+    void display(vector<int>arr) {
+        if (dbgLog) {
+            for (auto number:arr) {
+                cout << number << " ";
+            }
+            cout << endl;
+        }
+    }
+
+public:
+    //call counting sort for each position d (0 to max d in all the numbers)
+    void run(vector<int> &array, int R) {
+        this->base = R;
+        this->R = R;
+        // calculate maximum digit among all numbers in array
+        int maxD = maxNumberOfDigits(array);
+        cout << "max digit :" << maxD << endl;
+
+        for (int d = 0; d < maxD; d++) {
+            countingSort(array, d, maxD);
+        }
+    }
+};
+
+vector<int> radixSort(vector<int> array) {
+    if (array.size() == 0) {
+        return {};
+    }
+
+    if (array.size() == 1) {
+        return array;
+    }
+
+    int base = 10;
+    RadixSort *sort = new RadixSort();
+    sort->run(array, base);
+    return array;
+}
+
+
+void test_radixSort() {
+    vector<int> arr = {8762, 654, 3008, 345, 87, 65, 234, 12, 2};
+    vector<int> sortedArr;
+
+
+    arr = {8762, 654, 3008, 345, 87, 65, 234, 12, 2, 100000};
+    cout << "Input " << endl;
+    for (auto &data:arr) {
+        cout << data << " ";
+    }
+    cout << endl;
+    sortedArr = radixSort(arr);
+    cout << "Output" << endl;
+    for (auto &data:sortedArr) {
+        cout << data << " ";
+    }
+    cout << endl;
+    return;
+}
+
+
+
+130, 21, 2, 12
+
+-> 130, 21, 2, 12
+-> 2, 12, 21, 130
+
+->
+2, 12, 23,
+
+
+------------------------------------------------------------------------------------------------------
+Merge Sort
+
+void merge(vector<int> arr, int start, int mid, int end) {
+	int leftSize  = mid - start + 1;
+	int rightSize = end - mid;
+	int size = end - start + 1;
+
+	vector<int> leftArr = (leftSize, 0);
+	vector<int> rightArr = (rightSize, 0);
+
+	int idx = 0;
+
+	for (idx = 0; idx < leftSize; idx++) {
+		leftArr[idx] = arr[start + idx];
+	}
+
+	for (idx = 0; idx < rightSize; idx++) {
+		rightArr[idx] = arr[mid + idx + 1];
+	}
+
+	int rt, lt, sz;
+	rt = 0;
+	lt = 0;
+	sz = start;
+
+
+	while ((lt < leftSize) && (rt < rightSize)) {
+		if (arrLeft[lt] < arrRight[rt]) {
+			arr[sz] = arrLeft[lt];
+			lt = lt + 1;
+			sz = sz + 1;
+		} else {
+			arr[sz] = arrRight[rt];
+			rt = rt + 1;
+			sz = sz + 1;
+		}
+	}
+
+	while (lt < leftSize) {
+		arr[sz] = leftArr[lt];
+		sz = sz + 1;
+		lt = lt + 1;
+	}
+
+	while (rt < rightSize) {
+		arr[sz] = rightArr[rt];
+		sz = sz + 1;
+		rt = rt + 1;
+	}
+}
+
+void mergeSortInt(vector<int> &array, int start, int end) {
+	if (start < end) {
+		mid = (start + end)/2;
+		merge(array, start, mid);
+		merge(array, mid + 1, end);
+	}
+}
+
+vector<int> mergeSort(vector<int> array) {
+  if (array.size() == 0) {
+  	return {};
+  }
+
+  if (array.size() == 1) {
+	  return array;
+  }
+
+  int start  = 0;
+  int end = array.size() - 1;
+
+  mergeSortInt(array, start, end);
+  return array;
+
+}
+
+
+------------------------------------------------------------------
+Count Inversion
+
+Given an array, return number of inversions.
+
+array = [3, 4, 1, 2]
+Number of inversions ->4 ->
+
+[3, 1], [3, 2], [4, 1], [4 2]  -> indices (0, 1) (0, 2) (1, 2) (1, 3)
+
+array -> 2, 3, 3, 1, 9, 5, 6
+Number of inversions ->   5      ->
+(2, 1), (3, 1), (3, 1), (9, 5), (9, 6) > indices -> (0, 3) (1, 3) (2, 3) (4, 5) (4, 6)
+
+
+-> in merge step, we will count the inversion and sort and return
+
+1 5 3 10 2 8 -> (1, 10) ()
+
+f(1 5 3) -> f(1 5)  + f(3) + g(1, 5, 3)
+f(1, 5) = 0
+f(3) = 0
+g(1, 5, 3) = 1
+
+f(1, 5, 3) => 1
+
+f (10, 2, 8) => f(10, 2) + f(8) + g(10, 2, 8)
+f(10, 2) => f (10) + f(2) + C (10, 2) => 0 + 0 + 1 => 1
+g(10, 2, 8) -> 1
+f(10, 2, 8) -> 1 + 0 + 1 => 2
+
+g(1 5 3 10 2 8) ->
+
+int merge(vector<int> &arr, int start, int end, int mid) {
+    int ltSize = mid - start + 1;
+    int rtSize = end - mid;
+    int inversionCount = 0;
+    vector<int> arrLeft(ltSize, 0);
+    vector<int> arrRight(rtSize, 0);
+
+    for (int idx = 0; idx < ltSize; idx++) {
+        arrLeft[idx] = arr[start + idx];
+    }
+
+    for (int idx = 0; idx < rtSize; idx++) {
+        arrRight[idx] = arr[mid + 1 + idx];
+    }
+
+    int arrIdx, leftIdx, rightIdx;
+    leftIdx = rightIdx = 0;
+    arrIdx = start;
+
+    while ((leftIdx < ltSize) && (rightIdx < rtSize)) {
+        if (arrLeft[leftIdx] > arrRight[rightIdx]) {
+            int tempIdx = leftIdx;
+            while (tempIdx < leftSize) {
+                if (arrLeft[leftIdx] > arrRight[rightIdx]) {
+                    inversionCount = inversionCount + 1;
+                    tempIdx = tempIdx + 1;
+                } else { break;}
+            }
+            arr[arrIdx] = arrLeft[leftIdx];
+            leftIdx = leftIdx + 1;
+            arrIdx = arrIdx + 1;
+        } else {
+            arr[arrIdx]  = arrRight[rightIdx];
+            arrIdx = arrIdx + 1;
+            rightIdx = rightIdx + 1;
+        }
+    }
+
+    while (leftIdx < leftSize) {
+        arr[arrIdx] = arrLeft[leftIdx];
+        leftIdx = leftIdx + 1;
+        arrIdx = arrIdx + 1;
+    }
+
+    while (rightIdx < rightSize) {
+        arr[arrIdx]  = arrRight[rightIdx];
+        arrIdx = arrIdx + 1;
+        rightIdx = rightIdx + 1;
+    }
+
+    return inversionCount
+
+}
+
+5 9 12 1 6
+
+int countInversionsInt(vector<int> &array, int start, int end) {
+    if (start < end) {
+        int mid = (start + end )/2;
+        int ltCount = countInversionsInt(array, start, mid, end);
+        int rtCount = countInversionsInt(array, mid + 1, end);
+        int mergeCount = mergeAndCount(arr, start, mid, end);
+
+        int totalCount = ltCount + rtCount + mergeCount;
+        return totalCount;
+    } else
+        return 0;
+    }
+}
+
+
+int countInversions(vector<int> array) {
+  if (array.size() == 0) {
+    return 0;
+  }
+
+  if (array.size() == 1) {
+      return 0;
+  }
+
+  int start, end, inversionCount;
+  start = 0;
+  end = array.size() - 1;
+  inversionCount = 0;
+  inversionCount = countInversionsInt(array, start, end)
+  return inversionCount;
+}
+
+
+
+---------------------------------------------------------------
+selectionSort
+/*
+ * The selection sort algorithm sorts an array by repeatedly finding the minimum
+ * element (considering ascending order) from unsorted part and putting it at the
+ * beginning. The algorithm maintains two subarrays in a given array.
+ * 1) The subarray which is already sorted.
+ * 2) Remaining subarray which is unsorted.
+ *
+ * In every iteration of selection sort, the minimum element (considering ascending order)
+ * from the unsorted subarray is picked and moved to the sorted subarray.
+ * https://www.geeksforgeeks.org/selection-sort/
+ *
+ *
+ */
+vector<int> selectionSort(vector<int> array) {
+    if (array.size() == 0) {
+        return {};
+    }
+    if (array.size() == 1) {
+        return array;
+    }
+    for (int idx = 0; idx < array.size(); idx++) {
+        int minIdx = idx;
+        for (int itr = idx + 1; itr < array.size(); itr++) {
+            if (array[itr] < array[minIdx]) {
+                minIdx = itr;
+            }
+        }
+        swap(array[idx], array[minIdx]);
+    }
+    return array;;
+}
+
+----------------------------------------------------------------------
+Three Number Sort
+/*
+ * First array consists of numbers from second array. Second array has pattern and first array has to be sorted
+   according to the pattern
+
+    first array {x, z, y, z, z, z, y, x ,  x  x}
+    Second array -> {x, y, z}
+
+    Output =>
+    {x, x, x, x, y, y, z, z, z, z}
+
+ 1. copy back
+ vector<int> threeNumberSort(vector<int> array, vector<int> order) {
+    if (array.size()== 0) {
+        return {};
+    }
+    if (array.size() == 1) {
+        return array;
+    }
+    int x, y, z;
+    x = order[0];
+    y = order[1];
+    z = order[2];
+    // count total occurance of x, y, z
+    int xCount, yCount, zCount;
+    xCount = yCount = zCount = 0;
+    for (int idx = 0; idx < array.size(); idx++) {
+        if (array[idx] == x) {
+            xCount++;
+        } else if (array[idx] == y) {
+            yCount++;
+        } else {
+            zCount++;
+        }
+    }
+    int xStart = 0 ;
+    int xEnd = xStart  + xCount - 1;
+    int yStart = xEnd + 1;
+    int yEnd = yStart + yCount - 1;
+    int zStart = yEnd + 1;
+    int zEnd = zStart + zCount - 1;
+    for (int idx = xStart; idx <= xEnd; idx++ ) {
+        array[idx] = x;
+    }
+    for (int idx = yStart; idx <= yEnd; idx++) {
+        array[idx] = y;
+    }
+
+    for (int idx = zStart; idx <= zEnd; idx++) {
+        array[idx] = z;
+    }
+    return array;
+}
+
+
+/*
+ * second solution
+ * Three SubArray
+ *  make x first and then y second
+ */
+vector<int> threeNumberSort(vector<int> array, vector<int> order) {
+	if (array.size()== 0) {
+        return {};
+    }
+    if (array.size() == 1) {
+        return array;
+    }
+    int x, y, z;
+    x = order[0];
+    y = order[1];
+    z = order[2];
+    // count total occurance of x, y, z
+    int xCount, yCount, zCount;
+	  int xStart = 0;
+    xCount = yCount = zCount = 0;
+    for (int idx = 0; idx < array.size(); idx++) {
+        if (array[idx] == x) {
+            xCount++;
+        } else if (array[idx] == y) {
+            yCount++;
+        } else {
+            zCount++;
+        }
+    }
+    int xIdx = 0 ;
+    for (int idx = 0; idx < array.size(); idx++) {
+        if (array[idx] == x) {
+            swap(array[idx], array[xIdx]);
+            xIdx++;
+        }
+    }
+    int yIdx = xStart  + xCount;
+    for (int idx = 0; idx < array.size(); idx++) {
+        if (array[idx] == y) {
+            swap(array[idx], array[yIdx]);
+            yIdx++;
+        }
+    }
+
+    return array;
+}
+
+   yStart = xStart + xCount
+   zStart = yStart + yCount
+ * lastXIdx, lastYIdx, lastZIdx = -1
+ * for (idx = 0; idx < array.size(); idx++) {
+        if (array[idx] == x) {
+            if (lastXIdx == -1) {
+                lastXIdx = xStart;
+            }
+        }
+ }
+
+ three sub array
+ 1. xIdx
+ 2. yIdx
+ 3. zIdx
+
+
+
+   x x y  y z z z
+
+   z -> swap with x  -> x
+   x => 2
+   y => 2
+   z => 3
+
+   xidx -> 0 to 1
+   ydx  -> 2 to 3
+   zidx -> 4 to 6
+
+
+
+ */

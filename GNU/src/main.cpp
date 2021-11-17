@@ -7,7 +7,7 @@
 #include <vector>
 #include <chrono>
 #include <queue>
-#include "Coding/DP/maxNonAdjSumInArray.h"
+#include "Coding/Greedy/MinWaitingTime.h"
 
 
 using namespace  std;
@@ -15,6 +15,6 @@ using namespace  std;
 
 int main() {
     std::cout << "Testing main " << std::endl;
-    test_maxSumNoAdjacent();
+    test_minwaitingTime();
     return 0;
 }
