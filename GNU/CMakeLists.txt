@@ -64,4 +64,23 @@ add_executable(GNU
         src/Coding/List/ReverseList.h src/Coding/List/ShiftListByK.h src/Coding/Recurssion/NthFibonacci.h src/Coding/Searching/binarySearch.h src/Coding/Sorting/BubbleSort.h
         src/Coding/Sorting/InsertionSort.h src/Coding/Stack/MinMaxStack.h src/Coding/Stack/BalacedBrackets.h src/Coding/Stack/MaximumReactange.h src/Coding/Stack/SunSetView.h
         src/Coding/Stack/nextGreaterElement.h src/Coding/Stack/SortStack.h src/Coding/Searching/LargestThreeNumber.h src/Coding/String/LongestPalindrom.h src/Coding/String/GroupAnagram.h
-        src/Coding/String/reverseLine.h src/Coding/String/MinCharacterForLine.h src/Coding/Heap/MinHeap.h src/Coding/String/TrieST.h src/Coding/String/RabinKarp.h src/Coding/Heap/mergeSortedArray.h src/Coding/Heap/MergeKSortedArray.h src/Coding/Heap/kSortedArray.h src/Coding/Heap/ContinuousMedian.h src/Coding/MergeInterval/MergeIntervals.h src/Coding/DP/ScoreRuns.h src/Coding/DP/coinChange.h src/Coding/DP/minCoinChange.h src/Coding/String/TinyUrl.h src/Coding/Array/mergeOverlappingIntervals.h src/Coding/Sorting/Qsort.h src/Coding/Sorting/HSort.h src/Coding/Sorting/RadixSort.h src/Coding/Sorting/mergeSort.h src/Coding/String/decryptString.h src/Coding/Array/SpiralArrayPrint2.h src/Coding/Sorting/countInversion.h src/Coding/Sorting/selectionSort.h src/Coding/Sorting/ThreeSort.h src/Coding/DP/maxNonAdjSumInArray.h src/Coding/Array/FirstDuplicateValue.h src/Coding/Searching/SearchForRange.h src/Coding/Searching/SiftedBinarySearch.h src/Coding/String/RatingCalculator.h src/Coding/String/canBePalindrome.h src/Coding/Searching/searchInSortedMatrix.h src/Coding/pramp.h src/Coding/DP/NumberofWaysCoinChange.h src/Coding/DP/minNumCoin.h  src/Coding/Greedy/MinWaitingTime.h)
+        src/Coding/String/reverseLine.h src/Coding/String/MinCharacterForLine.h src/Coding/Heap/MinHeap.h src/Coding/String/TrieST.h src/Coding/String/RabinKarp.h
+        src/Coding/Heap/mergeSortedArray.h src/Coding/Heap/MergeKSortedArray.h src/Coding/Heap/kSortedArray.h
+        src/Coding/Heap/ContinuousMedian.h src/Coding/MergeInterval/MergeIntervals.h
+        src/Coding/DP/ScoreRuns.h src/Coding/DP/coinChange.h src/Coding/DP/minCoinChange.h
+        src/Coding/String/TinyUrl.h src/Coding/Array/mergeOverlappingIntervals.h
+        src/Coding/Sorting/Qsort.h src/Coding/Sorting/HSort.h src/Coding/Sorting/RadixSort.h src/Coding/Sorting/mergeSort.h
+        src/Coding/String/decryptString.h src/Coding/Array/SpiralArrayPrint2.h src/Coding/Sorting/countInversion.h
+        src/Coding/Sorting/selectionSort.h src/Coding/Sorting/ThreeSort.h src/Coding/DP/maxNonAdjSumInArray.h
+        src/Coding/Array/FirstDuplicateValue.h src/Coding/Searching/SearchForRange.h src/Coding/Searching/SiftedBinarySearch.h
+        src/Coding/String/RatingCalculator.h src/Coding/String/canBePalindrome.h src/Coding/Searching/searchInSortedMatrix.h
+        src/Coding/pramp.h src/Coding/DP/NumberofWaysCoinChange.h src/Coding/DP/minNumCoin.h
+        src/Coding/Greedy/MinWaitingTime.h
+        src/Coding2022/List/ShiftListByK.h src/Coding2022/List/MergeList.h
+        src/Coding2022/List/LinkedList.h
+        src/Coding2022/List/ReverseList.h
+        src/Coding2022/List/LRUCache.h
+        src/Coding2022/List/LRUCacheSubmit.h
+        src/Coding2022/List/DLL.h
+        src/Coding2022/List/SLL.h
+        src/Coding2022/List/CLL.h src/Coding2022/Array/quicksort.h)

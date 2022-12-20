@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="GNU"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/rakamal/CLionProjects/GNU/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GNU">
+				<Option output="/Users/rakamal/CLionProjects/GNU/cmake-build-debug/GNU" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/rakamal/CLionProjects/GNU/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/rakamal/CLionProjects/GNU/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.1.6/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 GNU"/>
+					<CompileFile command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="GNU/fast">
+				<Option output="/Users/rakamal/CLionProjects/GNU/cmake-build-debug/GNU" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/rakamal/CLionProjects/GNU/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/rakamal/CLionProjects/GNU/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/13.1.6/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 GNU/fast"/>
+					<CompileFile command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/rakamal/CLionProjects/GNU/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/rakamal/CLionProjects/GNU/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j16 -f &quot;/Users/rakamal/CLionProjects/GNU/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/AList.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/AQueue.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/AStack.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/BinarySearchTree.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/DList.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/DSTest.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/Graph.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/Heap.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/LQueue.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/LStack.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/Link.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/List.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/Queue.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/SList.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/DS/Stack.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/Exceptions/excep.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/Sorting/CSort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/Sorting/HSort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/Sorting/Msort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/Sorting/SortTest.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/Sorting/qsort.cpp">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/Sorting/qsort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/Util/IntegerFileGenerator.cpp">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/Util/IntegerFileGenerator.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/helloworld.cpp">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Codes/helloworld.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/ArrayProduct.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/Arraypeak.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/FirstDuplicateValue.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/LargestRange.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/MoveElementsToEnd.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/NonConstructible.cpp">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/SmallestDifference.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/SortedSquare.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/SpiralArrayPrint.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/SpiralArrayPrint2.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/SubArraySort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/ThreeSum.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/ZigZagTraverseMatrix.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/mergeOverlappingIntervals.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/twoSum.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Array/validateSubsequence.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/DP/NumberofWaysCoinChange.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/DP/ScoreRuns.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/DP/SubArraySum.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/DP/coinChange.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/DP/maxNonAdjSumInArray.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/DP/minCoinChange.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/DP/minNumCoin.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Greedy/MinWaitingTime.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Heap/ContinuousMedian.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Heap/MergeKSortedArray.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Heap/MinHeap.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Heap/kSortedArray.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Heap/mergeSortedArray.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/List/DoubleLinkedList.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/List/LinkedList.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/List/Loop.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/List/RemoveDuplicatesSortedLinkedList.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/List/RemoveKNodeFromEnd.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/List/ReverseList.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/List/ShiftListByK.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/List/SingleLinkedList.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/List/SumOfLists.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/MergeInterval/MergeIntervals.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Recurssion/KnightTour.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Recurssion/NthFibonacci.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Recurssion/RatInMaze.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Searching/LargestThreeNumber.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Searching/SearchForRange.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Searching/SiftedBinarySearch.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Searching/binarySearch.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Searching/searchInSortedMatrix.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Sorting/BubbleSort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Sorting/HSort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Sorting/InsertionSort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Sorting/Qsort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Sorting/RadixSort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Sorting/ThreeSort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Sorting/countInversion.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Sorting/mergeSort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Sorting/selectionSort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Stack/BalacedBrackets.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Stack/MaximumReactange.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Stack/MinMaxStack.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Stack/SortStack.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Stack/SunSetView.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Stack/nextGreaterElement.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/FirstNonRepeatingCharacter.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/GenerateDocuments.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/GroupAnagram.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/LongestPalindrom.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/MinCharacterForLine.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/Palindrome.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/RabinKarp.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/RatingCalculator.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/RunLengthEncoding.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/StringAPITest.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/TinyUrl.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/TrieST.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/canBePalindrome.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/ceaser_cipher.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/decryptString.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/String/reverseLine.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/BST.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/BSTTest.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/CheckheightBalanced.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/Diameter.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/KthLargestValue.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/NodeHeights.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/Successor.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/branchSum.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/closestValue.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/minHeightBST.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/mirror.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/traverse.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/Tree/validateBST.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding/pramp.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding2022/Array/quicksort.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding2022/List/CLL.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding2022/List/DLL.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding2022/List/LRUCache.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding2022/List/LRUCacheSubmit.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding2022/List/LinkedList.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding2022/List/MergeList.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding2022/List/ReverseList.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding2022/List/SLL.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/Coding2022/List/ShiftListByK.h">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/src/main.cpp">
+			<Option target="GNU"/>
+		</Unit>
+		<Unit filename="/Users/rakamal/CLionProjects/GNU/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

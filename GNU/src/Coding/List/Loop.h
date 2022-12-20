@@ -1,5 +1,7 @@
 //
-// Created by kamr on 11/2/2021.
+//Find loop in the linked list. 
+// Algorithm  
+//Created by kamr on 11/2/2021.
 //
 
 #ifndef GNU_LOOP_H

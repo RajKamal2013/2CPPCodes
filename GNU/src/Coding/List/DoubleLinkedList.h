@@ -5,6 +5,11 @@
 #ifndef GNU_DOUBLELINKEDLIST_H
 #define GNU_DOUBLELINKEDLIST_H
 
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
 
 class Node {
 public:

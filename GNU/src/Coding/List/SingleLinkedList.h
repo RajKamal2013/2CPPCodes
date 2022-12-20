@@ -5,7 +5,13 @@
 #ifndef GNU_SINGLELINKEDLIST_H
 #define GNU_SINGLELINKEDLIST_H
 
-/*
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+
 class Node {
 public:
     int value;
@@ -20,7 +26,7 @@ Node::Node(int value) {
     prev = nullptr;
     next = nullptr;
 };
-*/
+
 class SingleLinkedList {
     Node *head;
     Node *tail;

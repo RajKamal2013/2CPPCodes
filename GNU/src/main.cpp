@@ -7,14 +7,12 @@
 #include <vector>
 #include <chrono>
 #include <queue>
-#include "Coding/Greedy/MinWaitingTime.h"
-
+#include "Coding2022/List/CLL.h"
 
 using namespace  std;
 
-
 int main() {
     std::cout << "Testing main " << std::endl;
-    test_minwaitingTime();
+    testCLL();
     return 0;
 }

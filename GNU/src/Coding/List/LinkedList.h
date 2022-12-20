@@ -5,6 +5,11 @@
 #ifndef GNU_LINKEDLIST_H
 #define GNU_LINKEDLIST_H
 
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
 class LinkedList {
 public:
     int value;
